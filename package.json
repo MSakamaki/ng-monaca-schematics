@@ -1,0 +1,32 @@
+{
+  "name": "@monaca/schematics",
+  "version": "0.0.1",
+  "description": "A Monaca schematics",
+  "scripts": {
+    "clean": "del dist",
+    "build": "tsc -p tsconfig.json && npm run copy.res",
+    "test": "npm run build && jasmine dist/**/*_spec.js",
+    "copy.res": "node_modules/.bin/cpx 'src/**/*.{html,png,css,js,xml,json}' dist"
+  },
+  "keywords": [
+    "schematics",
+    "monaca",
+    "angular"
+  ],
+  "author": "",
+  "license": "MIT",
+  "schematics": "./dist/collection.json",
+  "dependencies": {
+    "@angular-devkit/core": "^0.4.7",
+    "@angular-devkit/schematics": "^0.4.7",
+    "@types/jasmine": "^2.6.0",
+    "@types/node": "^8.0.31",
+    "jasmine": "^2.8.0",
+    "typescript": "^2.5.2"
+  },
+  "devDependencies": {
+    "@schematics/angular": "^0.4.8",
+    "cpx": "^1.5.0",
+    "del-cli": "^1.1.0"
+  }
+}

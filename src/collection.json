@@ -1,0 +1,13 @@
+{
+  "$schema": "../node_modules/@angular-devkit/schematics/collection-schema.json",
+  "schematics": {
+    "application": {
+      "description": "new application workspace",
+      "factory": "./application/index#application"
+    },
+    "workspace": {
+      "description": "A blank schematic.",
+      "factory": "./workspace/index#workspace"
+    }
+  }
+}
