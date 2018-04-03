@@ -19,6 +19,9 @@ install:
   - npm install -g @angular-devkit/schematics-cli@0.4.8
   - npm install -g del-cli
 
+  # npm install
+  - npm install
+
 test_script:
 # テスト用のコマンドを指定します
   - npm test
