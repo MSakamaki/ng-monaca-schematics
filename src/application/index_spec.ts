@@ -1,9 +1,9 @@
 import { SchematicTestRunner, UnitTestTree } from '@angular-devkit/schematics/testing';
 
-import { Schema as WorkspaceOptions } from '@schematics/angular/workspace/schema';
-import { Schema as ApplicationOptions } from '@schematics/angular/application/schema';
 import * as path from 'path';
 import { latestVersions } from '../utility/latest-versions';
+import { MonacaApplicationOptions } from './schema';
+import { MonacaWorkspaceOptions } from '../workspace/schema';
 
 const collectionPath = path.join(__dirname, '../collection.json');
 
@@ -15,6 +15,7 @@ const exp = [
   '/tslint.json',
   '/.editorconfig',
   '/.gitignore',
+  '/example.monaca.config.json',
   '/projects/sample-test/browserslist',
   '/projects/sample-test/karma.conf.js',
   '/projects/sample-test/src/environments/environment.prod.ts',
@@ -36,7 +37,7 @@ const exp = [
   '/projects/sample-test-e2e/protractor.conf.js',
   '/projects/sample-test-e2e/src/app.e2e-spec.ts',
   '/projects/sample-test-e2e/src/app.po.ts',
-  '/projects/sample-test-e2e/tsconfig.e2e.json',  
+  '/projects/sample-test-e2e/tsconfig.e2e.json',
   '/projects/sample-test/config.xml',
   '/projects/sample-test/res/android/icon/hdpi.png',
   '/projects/sample-test/res/android/icon/ldpi.png',
@@ -84,17 +85,19 @@ const exp = [
   '/projects/sample-test/res/winrt/icon/app_tile_wide_logo_winrt.png',
   '/projects/sample-test/res/winrt/icon/package_logo_winrt.png',
   '/projects/sample-test/res/winrt/screen/app_splash_screen_winrt.png',
-  '/projects/sample-test/www/components/loader.css',
-  '/projects/sample-test/www/components/loader.js',
-  '/projects/sample-test/www/components/monaca-cordova-loader/bower.json',
-  '/projects/sample-test/www/components/monaca-cordova-loader/cordova-loader.js',
-  '/projects/sample-test/www/components/monaca-core-utils/bower.json',
-  '/projects/sample-test/www/components/monaca-core-utils/monaca-core-utils.js',
-  '/projects/sample-test/www/css/style.css',
-  '/projects/sample-test/www/index.html',
+  '/projects/sample-test/script/buld.js',
+  '/projects/sample-test/script/upload.js',
+  '/projects/sample-test/src/components/loader.css',
+  '/projects/sample-test/src/components/loader.js',
+  '/projects/sample-test/src/components/monaca-cordova-loader/bower.json',
+  '/projects/sample-test/src/components/monaca-cordova-loader/cordova-loader.js',
+  '/projects/sample-test/src/components/monaca-core-utils/bower.json',
+  '/projects/sample-test/src/components/monaca-core-utils/monaca-core-utils.js',
+  '/projects/sample-test/src/css/style.css',
+  '/projects/sample-test/.monaca/local_properties.json',
   '/projects/sample-test/.monaca/project_info.json',
-  '/projects/sample-test/www/components/monaca-cordova-loader/.bower.json',
-  '/projects/sample-test/www/components/monaca-core-utils/.bower.json',
+  '/projects/sample-test/src/components/monaca-cordova-loader/.bower.json',
+  '/projects/sample-test/src/components/monaca-core-utils/.bower.json',
 ];
 
 fdescribe('application', () => {
@@ -102,13 +105,14 @@ fdescribe('application', () => {
   let workspaceTree: UnitTestTree;
   let tree: UnitTestTree;
 
-  const workspaceOptions: WorkspaceOptions = {
+  const workspaceOptions: MonacaWorkspaceOptions = {
     name: 'workspace',
     newProjectRoot: 'projects',
     version: latestVersions.Angular,
+    monacaProjectId: 'XXXXXXXXXXXX',
   };
 
-  const defaultOptions: ApplicationOptions = {
+  const defaultOptions: MonacaApplicationOptions = {
     name: 'sample-test',
     inlineStyle: false,
     inlineTemplate: false,
@@ -117,6 +121,7 @@ fdescribe('application', () => {
     style: 'css',
     skipTests: false,
     skipPackageJson: false,
+    monacaProjectId: 'XXXXXXXXXXXX',
   };
 
   beforeEach(() => {
