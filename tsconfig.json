@@ -5,8 +5,10 @@
       "es2017",
       "dom"
     ],
-    "outDir": "dist",
+    "outDir": "src",
     "declaration": true,
+    "experimentalDecorators":true,
+    "emitDecoratorMetadata": true,
     "module": "commonjs",
     "moduleResolution": "node",
     "noEmitOnError": true,
@@ -20,7 +22,7 @@
     "skipLibCheck": true,
     "sourceMap": true,
     "strictNullChecks": true,
-    "target": "es6",
+    "target": "es2016",
     "types": [
       "jasmine",
       "node"
@@ -30,6 +32,7 @@
     "src/**/*"
   ],
   "exclude": [
-    "src/*/files/**/*"
+    "src/*/files/**/*",
+    "src/*/other-files/**/*"
   ]
 }

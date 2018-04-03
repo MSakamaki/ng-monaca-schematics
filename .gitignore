@@ -1,5 +1,10 @@
 # Outputs
-dist
+src/**/*.js
+src/**/*.js.map
+src/**/*.d.ts
+!src/*/files/
+!src/*/other-files/
+
 
 # IDEs
 .idea/

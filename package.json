@@ -3,10 +3,10 @@
   "version": "0.0.1",
   "description": "A Monaca schematics",
   "scripts": {
-    "clean": "del dist",
-    "build": "tsc -p tsconfig.json && npm run copy.res",
-    "test": "npm run build && jasmine dist/**/*_spec.js",
-    "copy.res": "node_modules/.bin/cpx 'src/**/*.{html,png,css,js,xml,json}' dist"
+    "clean": "del src/**/*.js src/**/*.js.map src/**/*.d.ts !src/*/files/**/*.js",
+    "build": "npm run clean && tsc -p tsconfig.json",
+    "w": "tsc -p tsconfig.json -w",
+    "test": "npm run clean && npm run build && jasmine src/**/*_spec.js"
   },
   "keywords": [
     "schematics",
@@ -15,17 +15,18 @@
   ],
   "author": "",
   "license": "MIT",
-  "schematics": "./dist/collection.json",
+  "schematics": "./src/collection.json",
   "dependencies": {
-    "@angular-devkit/core": "^0.4.7",
-    "@angular-devkit/schematics": "^0.4.7",
+    "@angular-devkit/core": "^0.4.8",
+    "@angular-devkit/schematics": "^0.4.8",
+    "@schematics/angular": "^0.4.8",
+    "@nrwl/schematics": "^0.9.1",
     "@types/jasmine": "^2.6.0",
     "@types/node": "^8.0.31",
     "jasmine": "^2.8.0",
-    "typescript": "^2.5.2"
+    "typescript": "2.6.2"
   },
   "devDependencies": {
-    "@schematics/angular": "^0.4.8",
     "cpx": "^1.5.0",
     "del-cli": "^1.1.0"
   }

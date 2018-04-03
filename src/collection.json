@@ -3,11 +3,18 @@
   "schematics": {
     "application": {
       "description": "new application workspace",
-      "factory": "./application/index#application"
+      "factory": "./application/index#application",
+      "schema": "../node_modules/@schematics/angular/application/schema.json"
     },
     "workspace": {
-      "description": "A blank schematic.",
-      "factory": "./workspace/index#workspace"
+      "description": "new workspace",
+      "factory": "./workspace/index#workspace",
+      "schema": "../node_modules/@schematics/angular/workspace/schema.json"
+    },
+    "ng-new": {
+      "description": "new workspace",
+      "factory": "./ng-new/index#ngNew",
+      "schema": "../node_modules/@schematics/angular/ng-new/schema.json"
     }
   }
 }
