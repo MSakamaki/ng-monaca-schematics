@@ -1,0 +1,7 @@
+{
+  "description":"rename to monaca.config.json",
+  "user": {
+    "id": "<youer id>",
+    "pass": "<youer passeord>"
+  }
+}
