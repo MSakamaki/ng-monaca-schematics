@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "A Monaca schematics",
   "scripts": {
-    "clean": "del src/**/*.js src/**/*.js.map src/**/*.d.ts !src/*/files/**/*.js",
+    "clean": "del 'src/**/*.js' 'src/**/*.js.map' 'src/**/*.d.ts' '!src/*/files/**/*.js'",
     "build": "npm run clean && tsc -p tsconfig.json",
     "w": "tsc -p tsconfig.json -w",
     "test": "npm run clean && npm run build && jasmine src/**/*_spec.js"
