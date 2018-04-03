@@ -14,16 +14,16 @@ import {
   template,
 } from '@angular-devkit/schematics';
 import { getWorkspace, WorkspaceSchema } from '@schematics/angular/utility/config';
-import { Schema as ApplicationOptions } from '@schematics/angular/application/schema';
 import { latestVersions } from '../utility/latest-versions';
 import { join } from 'path';
 import { updatePakageJson } from './update.pakagejson';
 import { fileReadJsonText } from '../utility/readTree';
 import { updateAppModueTs } from './update.app.module';
 import { updateNgJson } from './update.angular.json';
+import { MonacaApplicationOptions } from './schema';
 
 
-function overrideWith(options: ApplicationOptions, workspace: WorkspaceSchema) {
+function overrideWith(options: MonacaApplicationOptions, workspace: WorkspaceSchema) {
   const filePath = {
     packageJson: join('package.json'),
     ngJson: join('angular.json'),
@@ -48,7 +48,7 @@ function overrideWith(options: ApplicationOptions, workspace: WorkspaceSchema) {
   };
 }
 
-function injectMonaca(options: ApplicationOptions, workspace: WorkspaceSchema) {
+function injectMonaca(options: MonacaApplicationOptions, workspace: WorkspaceSchema) {
   return mergeWith(apply(url('./files'), [
     template({
       ...strings,
@@ -58,18 +58,21 @@ function injectMonaca(options: ApplicationOptions, workspace: WorkspaceSchema) {
       cordova_version: latestVersions.cordovaVersion,
       framework_version: latestVersions.frameworkVersion,
       xcode_version: latestVersions.xcodeVersion,
+      projectDirectory: join(workspace.newProjectRoot||'', options.name||''),
     }),
     move(join(workspace.newProjectRoot||'', options.name||''))
   ]), MergeStrategy.Overwrite);
 }
 
-function OverwriteOthersFile(options: ApplicationOptions, workspace: WorkspaceSchema) {
+function OverwriteOthersFile(options: MonacaApplicationOptions, workspace: WorkspaceSchema) {
+
+
   return mergeWith(apply(url('./other-files'), [
     template({
       ...strings,
       // 'if-flat': (s: string) => options.flat ? '' : s,
       dot: '.',
-      ...options
+      ...options,
     }),
     move(join(workspace.newProjectRoot||'', options.name||'', 'src/app')),
   ]), MergeStrategy.Overwrite);
@@ -77,7 +80,7 @@ function OverwriteOthersFile(options: ApplicationOptions, workspace: WorkspaceSc
 
 
 
-export function application(options: ApplicationOptions): Rule {
+export function application(options: MonacaApplicationOptions): Rule {
 
   return (host: Tree, _context: SchematicContext) => {
     const workspace = getWorkspace(host);

@@ -1,9 +1,9 @@
 {
   "name": "@monaca/schematics",
   "version": "0.0.1",
-  "description": "A Monaca schematics",
+  "description": "Monaca Anguler schematics",
   "scripts": {
-    "clean": "del 'src/**/*.js' 'src/**/*.js.map' 'src/**/*.d.ts' '!src/*/files/**/*.js'",
+    "clean": "node_modules/.bin/del-cli 'src/**/*.js' 'src/**/*.js.map' 'src/**/*.d.ts' '!src/*/files/**/*.js'",
     "build": "npm run clean && tsc -p tsconfig.json",
     "w": "tsc -p tsconfig.json -w",
     "test": "npm run clean && npm run build && jasmine src/**/*_spec.js"
@@ -13,8 +13,20 @@
     "monaca",
     "angular"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MSakamaki/-monaca-schematics"
+  },
   "author": "",
-  "license": "MIT",
+  "licenses": [
+    {
+      "type": "Apache-2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0"
+    }
+  ],
+  "bugs": {
+    "url": "https://github.com/MSakamaki/-monaca-schematics/issues"
+  },
   "schematics": "./src/collection.json",
   "dependencies": {
     "@angular-devkit/core": "^0.4.8",

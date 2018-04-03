@@ -16,12 +16,16 @@ import {
   NodePackageLinkTask,
   RepositoryInitializerTask,
 } from '@angular-devkit/schematics/tasks';
-import { Schema as ApplicationOptions } from '@schematics/angular/application/schema';
-import { Schema as WorkspaceOptions } from '@schematics/angular/workspace/schema';
-import { Schema as NgNewOptions } from '@schematics/angular/ng-new/schema';
 
-export function ngNew(options: NgNewOptions): Rule {
-  console.log('options', JSON.stringify(options));
+import { NgNewMonacaOptions } from './schema';
+import { MonacaApplicationOptions } from '../application/schema';
+import { MonacaWorkspaceOptions } from '../workspace/schema';
+
+export function ngNew(options: NgNewMonacaOptions): Rule {
+  if (!options.projectid) {
+    throw new SchematicsException(`Invalid options, "projectid" is required.`);
+  }
+
   if (!options.name) {
     throw new SchematicsException(`Invalid options, "name" is required.`);
   }
@@ -30,12 +34,13 @@ export function ngNew(options: NgNewOptions): Rule {
     options.directory = options.name;
   }
 
-  const workspaceOptions: WorkspaceOptions = {
+  const workspaceOptions: MonacaWorkspaceOptions = {
     name: options.name,
     version: options.version,
     newProjectRoot: options.newProjectRoot || 'projects',
+    monacaProjectId: options.projectid,
   };
-  const applicationOptions: ApplicationOptions = {
+  const applicationOptions: MonacaApplicationOptions = {
     name: options.name,
     inlineStyle: options.inlineStyle,
     inlineTemplate: options.inlineTemplate,
@@ -44,6 +49,7 @@ export function ngNew(options: NgNewOptions): Rule {
     style: options.style,
     skipTests: options.skipTests,
     skipPackageJson: false,
+    monacaProjectId: options.projectid,
   };
 
   return chain([
