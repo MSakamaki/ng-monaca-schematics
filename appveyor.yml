@@ -17,6 +17,7 @@ install:
   # global install
   - npm install -g @angular/cli@6.0.0-beta.8
   - npm install -g @angular-devkit/schematics-cli@0.4.8
+  - npm install -g del-cli
 
 test_script:
 # テスト用のコマンドを指定します
