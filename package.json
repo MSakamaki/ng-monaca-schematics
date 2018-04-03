@@ -3,9 +3,10 @@
   "version": "0.0.1",
   "description": "Monaca Anguler schematics",
   "scripts": {
+    "tsc:v": "node_modules/.bin/tsc --version",
     "clean": "del-cli src/**/*.js src/**/*.js.map src/**/*.d.ts !src/*/files/**/*.js",
-    "build": "npm run clean && tsc -p tsconfig.json",
-    "w": "tsc -p tsconfig.json -w",
+    "build": "npm run clean && node_modules/.bin/tsc -p tsconfig.json",
+    "w": "node_modules/.bin/tsc -p tsconfig.json -w",
     "test": "npm run build && jasmine src/**/*_spec.js"
   },
   "keywords": [
