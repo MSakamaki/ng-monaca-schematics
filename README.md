@@ -1,5 +1,8 @@
 # MONACA + Angular 5+ schematics 
 
+[![Build Status](https://travis-ci.org/MSakamaki/-monaca-schematics.svg?branch=master)](https://travis-ci.org/MSakamaki/-monaca-schematics)
+[![DEPENDENCIES](https://david-dm.org/MSakamaki/-monaca-schematics)](https://david-dm.org/MSakamaki/-monaca-schematics.svg)
+[![DEVDEPENDENCIES](https://david-dm.org/MSakamaki/-monaca-schematics?type=dev)](https://david-dm.org/MSakamaki/-monaca-schematics.svg?type=dev)
 
 ### install
 
