@@ -3,5 +3,5 @@ node_js:
   - "7"
   - "8"
 before_script:
-  - npm install -g @angular/cli@6.0.0-beta.8
-  - npm install -g @angular-devkit/schematics-cli@0.4.8
+  - npm install -g @angular/cli@6.0.0-rc.2
+  - npm install -g @angular-devkit/schematics-cli@0.5.4

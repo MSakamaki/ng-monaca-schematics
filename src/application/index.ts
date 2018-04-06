@@ -34,10 +34,8 @@ function overrideWith(options: MonacaApplicationOptions, workspace: WorkspaceSch
   };
 
 
-  return (host: Tree, context: SchematicContext) => {
-    context.logger.info('overrideWith Action: ' + JSON.stringify(options));
-
-    const dataPkgJSON = JSON.stringify(updatePakageJson(fileReadJsonText(host, filePath.packageJson)), null, 2);
+  return (host: Tree) => {
+    const dataPkgJSON = JSON.stringify(updatePakageJson(fileReadJsonText(host, filePath.packageJson), options.name), null, 2);
     host.overwrite(filePath.packageJson, dataPkgJSON);
     // angular.json update
     const dataNgJson =  JSON.stringify(updateNgJson(fileReadJsonText(host, filePath.ngJson), workspace.newProjectRoot, options.name), null, 2);

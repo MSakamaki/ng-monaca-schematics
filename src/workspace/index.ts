@@ -21,11 +21,11 @@ const appendGitIgnore = `
 monaca.config.json
 `;
 
-function updateGitIgnore(options: MonacaWorkspaceOptions) {
+function updateGitIgnore(_options: MonacaWorkspaceOptions) {
   const filePath = '.gitignore';
 
-  return (host: Tree, context: SchematicContext) => {
-    context.logger.info('updateGitIgnore Action: ' + JSON.stringify(options));
+  return (host: Tree, _context: SchematicContext) => {
+    // context.logger.info('updateGitIgnore Action: ' + JSON.stringify(options));
 
     host.overwrite(filePath, fileReadText(host, filePath) + appendGitIgnore);
     return host;

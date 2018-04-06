@@ -22,10 +22,6 @@ import { MonacaApplicationOptions } from '../application/schema';
 import { MonacaWorkspaceOptions } from '../workspace/schema';
 
 export function ngNew(options: NgNewMonacaOptions): Rule {
-  if (!options.projectid) {
-    throw new SchematicsException(`Invalid options, "projectid" is required.`);
-  }
-
   if (!options.name) {
     throw new SchematicsException(`Invalid options, "name" is required.`);
   }
@@ -38,7 +34,6 @@ export function ngNew(options: NgNewMonacaOptions): Rule {
     name: options.name,
     version: options.version,
     newProjectRoot: options.newProjectRoot || 'projects',
-    monacaProjectId: options.projectid,
   };
   const applicationOptions: MonacaApplicationOptions = {
     name: options.name,
@@ -49,7 +44,6 @@ export function ngNew(options: NgNewMonacaOptions): Rule {
     style: options.style,
     skipTests: options.skipTests,
     skipPackageJson: false,
-    monacaProjectId: options.projectid,
   };
 
   return chain([

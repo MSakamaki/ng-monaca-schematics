@@ -24,19 +24,22 @@
       "url": "http://www.apache.org/licenses/LICENSE-2.0"
     }
   ],
+  "engines": {
+    "node": ">=8.9",
+    "npm": "~5.6.0node"
+  },
   "bugs": {
     "url": "https://github.com/MSakamaki/-monaca-schematics/issues"
   },
   "schematics": "./src/collection.json",
   "dependencies": {
-    "@angular-devkit/core": "^0.4.8",
-    "@angular-devkit/schematics": "^0.4.8",
-    "@schematics/angular": "^0.4.8",
-    "@nrwl/schematics": "^0.9.1",
+    "@angular-devkit/core": "^0.5.4",
+    "@angular-devkit/schematics": "^0.5.4",
+    "@schematics/angular": "^0.5.4",
     "@types/jasmine": "^2.6.0",
     "@types/node": "^8.0.31",
     "jasmine": "^2.8.0",
-    "typescript": "2.6.2"
+    "typescript": "~2.6.2"
   },
   "devDependencies": {
     "cpx": "^1.5.0",

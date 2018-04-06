@@ -1,5 +1,17 @@
 export const updateNgJson = (originJson: any, _projectName: string = '', _appName: string = '') => {
 
+  // see: https://github.com/angular/devkit/issues/249
+  // originJson.extends = [
+  //   '@schematics/angular',
+  //   '@monaca/schematics'
+  // ];
+
+  originJson.schematics = {
+    component: {
+      extends: '@monaca/schematics'
+    }
+  };
+
   originJson.projects[_appName].architect.build.options = {
     ...originJson.projects[_appName].architect.build.options,
     outputPath: `${_projectName}/${_appName}/www`,

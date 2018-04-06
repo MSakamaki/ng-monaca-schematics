@@ -1,9 +1,16 @@
 import { latestVersions } from "../utility/latest-versions";
 
-export const updatePakageJson = (originPakageJson: any) => ({
+export const updatePakageJson = (originPakageJson: any, appname: string) => ({
   ...originPakageJson,
   name: 'monaca-app',
   displayName: 'Monaca Template Application',
+  scripts: {
+    ...originPakageJson.scripts,
+    build: 'ng build --prod',
+    [`${appname}.init`]: `node ./projects/${appname}/script/create.js`,
+    [`${appname}.upload`]: `node ./projects/${appname}/script/upload.js`,
+    [`${appname}.build`]: `node ./projects/${appname}/script/build.js`,
+  },
   dependencies: {
     ...originPakageJson.dependencies,
     'cordova-custom-config': latestVersions.cordovaCustomConfig,

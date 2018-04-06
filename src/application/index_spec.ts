@@ -85,8 +85,9 @@ const exp = [
   '/projects/sample-test/res/winrt/icon/app_tile_wide_logo_winrt.png',
   '/projects/sample-test/res/winrt/icon/package_logo_winrt.png',
   '/projects/sample-test/res/winrt/screen/app_splash_screen_winrt.png',
-  '/projects/sample-test/script/buld.js',
+  '/projects/sample-test/script/build.js',
   '/projects/sample-test/script/upload.js',
+  '/projects/sample-test/script/create.js',
   '/projects/sample-test/src/components/loader.css',
   '/projects/sample-test/src/components/loader.js',
   '/projects/sample-test/src/components/monaca-cordova-loader/bower.json',
@@ -94,7 +95,6 @@ const exp = [
   '/projects/sample-test/src/components/monaca-core-utils/bower.json',
   '/projects/sample-test/src/components/monaca-core-utils/monaca-core-utils.js',
   '/projects/sample-test/src/css/style.css',
-  '/projects/sample-test/.monaca/local_properties.json',
   '/projects/sample-test/.monaca/project_info.json',
   '/projects/sample-test/src/components/monaca-cordova-loader/.bower.json',
   '/projects/sample-test/src/components/monaca-core-utils/.bower.json',
@@ -109,7 +109,6 @@ fdescribe('application', () => {
     name: 'workspace',
     newProjectRoot: 'projects',
     version: latestVersions.Angular,
-    monacaProjectId: 'XXXXXXXXXXXX',
   };
 
   const defaultOptions: MonacaApplicationOptions = {
@@ -121,7 +120,6 @@ fdescribe('application', () => {
     style: 'css',
     skipTests: false,
     skipPackageJson: false,
-    monacaProjectId: 'XXXXXXXXXXXX',
   };
 
   beforeEach(() => {

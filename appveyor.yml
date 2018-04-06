@@ -18,8 +18,8 @@ install:
   - npm install -g node-gyp
 
   # global install
-  - npm install -g @angular/cli@6.0.0-beta.8
-  - npm install -g @angular-devkit/schematics-cli@0.4.8
+  - npm install -g @angular/cli@6.0.0-rc.2
+  - npm install -g @angular-devkit/schematics-cli@0.5.4
   - npm install -g del-cli
 
   # npm install
