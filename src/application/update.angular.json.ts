@@ -30,10 +30,10 @@ export const updateNgJson = (originJson: any, _projectName: string = '', _appNam
         input: 'node_modules/onsenui/css/onsenui.css'
       },
       {
-        input: 'projects/myapp/src/components/loader.css'
+        input: `projects/${_appName}/src/components/loader.css`
       },
       {
-        input: 'projects/myapp/src/css/style.css'
+        input: `projects/${_appName}/src/css/style.css`
       }
     ]),
     scripts: originJson.projects[_appName].architect.build.options.scripts.concat([
