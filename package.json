@@ -42,6 +42,7 @@
     "typescript": "~2.6.2"
   },
   "devDependencies": {
+    "cheerio": "^1.0.0-rc.2",
     "cpx": "^1.5.0",
     "del-cli": "^1.1.0"
   }

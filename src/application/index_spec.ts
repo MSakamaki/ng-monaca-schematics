@@ -85,6 +85,7 @@ const exp = [
   '/projects/sample-test/res/winrt/icon/app_tile_wide_logo_winrt.png',
   '/projects/sample-test/res/winrt/icon/package_logo_winrt.png',
   '/projects/sample-test/res/winrt/screen/app_splash_screen_winrt.png',
+  '/scripts/replace.index.html.js',
   '/projects/sample-test/script/build.js',
   '/projects/sample-test/script/upload.js',
   '/projects/sample-test/script/create.js',

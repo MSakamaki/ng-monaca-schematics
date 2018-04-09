@@ -11,9 +11,12 @@ export const latestVersions = {
   cordovaPluginSplashscreen: '5.0.1',
   cordovaPluginWhitelist: '1.3.3',
   monacaPluginMonacaCore: '3.2.0',
-  monacaLib: '^2.6.1',
   onsenui: '~2.9.2',
   ngxOnsenui:'~4.1.0',
+
+  // dev
+  monacaLib: '^2.6.1',
+  cheerio: '1.0.0-rc.2',
 
 };
 
