@@ -1,7 +1,21 @@
 language: node_js
 node_js:
-  - "7"
+  - stable
   - "8"
+branches:
+  only: master
 before_script:
+  - npm install
   - npm install -g @angular/cli@6.0.0-rc.2
   - npm install -g @angular-devkit/schematics-cli@0.5.4
+  - npm link
+after_failure:
+  - cat /home/travis/build/MSakamaki/-monaca-schematics/npm-debug.log
+notifications:
+  slack: gxp:ov6kUHOOChvUDSgHMCLnUiuu
+script:
+  - npm run test
+  - mkdir work && cd work
+  - ng new myapp -c @monaca/schematics
+cache:
+  directories: node_modules

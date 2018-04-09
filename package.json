@@ -1,6 +1,6 @@
 {
   "name": "@monaca/schematics",
-  "version": "0.0.1",
+  "version": "0.0.0",
   "description": "Monaca Anguler schematics",
   "scripts": {
     "clean": "del-cli src/**/*.js src/**/*.js.map src/**/*.d.ts !src/*/files/**/*.js",
@@ -36,9 +36,9 @@
     "@angular-devkit/core": "^0.5.4",
     "@angular-devkit/schematics": "^0.5.4",
     "@schematics/angular": "^0.5.4",
-    "@types/jasmine": "^2.6.0",
-    "@types/node": "^8.0.31",
-    "jasmine": "^2.8.0",
+    "@types/jasmine": "^2.8.6",
+    "@types/node": "^9.6.2",
+    "jasmine": "^2.8.6",
     "typescript": "~2.6.2"
   },
   "devDependencies": {
