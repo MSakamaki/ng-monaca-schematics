@@ -39,6 +39,7 @@
     "@types/jasmine": "^2.8.6",
     "@types/node": "^9.6.2",
     "jasmine": "^2.8.6",
+    "monaca-lib": "^2.6.1",
     "typescript": "~2.6.2"
   },
   "devDependencies": {

@@ -29,7 +29,7 @@ function overrideWith(options: MonacaApplicationOptions, workspace: WorkspaceSch
     ngJson: join('angular.json'),
     ts: {
       vendor: join('src', 'vendor.ts'),
-      mainApp: join(workspace.newProjectRoot||'', options.name||'' , 'src/app', 'app.module.ts')
+      mainApp: join(workspace.newProjectRoot || '', options.name || '', 'src/app', 'app.module.ts')
     }
   };
 
@@ -38,7 +38,7 @@ function overrideWith(options: MonacaApplicationOptions, workspace: WorkspaceSch
     const dataPkgJSON = JSON.stringify(updatePakageJson(fileReadJsonText(host, filePath.packageJson), options.name), null, 2);
     host.overwrite(filePath.packageJson, dataPkgJSON);
     // angular.json update
-    const dataNgJson =  JSON.stringify(updateNgJson(fileReadJsonText(host, filePath.ngJson), workspace.newProjectRoot, options.name), null, 2);
+    const dataNgJson = JSON.stringify(updateNgJson(fileReadJsonText(host, filePath.ngJson), workspace.newProjectRoot, options.name), null, 2);
     host.overwrite(filePath.ngJson, dataNgJson);
 
     updateAppModueTs(host, filePath.ts.mainApp);
@@ -47,19 +47,29 @@ function overrideWith(options: MonacaApplicationOptions, workspace: WorkspaceSch
 }
 
 function injectMonaca(options: MonacaApplicationOptions, workspace: WorkspaceSchema) {
-  return mergeWith(apply(url('./files'), [
+
+  const monacaLib = mergeWith(apply(url('../../node_modules/monaca-lib/src/template/components'), [
     template({
       ...strings,
-      // 'if-flat': (s: string) => options.flat ? '' : s,
+      ...options,
+    }),
+    move(join(workspace.newProjectRoot || '', options.name || '', 'src/components')),
+  ]), MergeStrategy.Overwrite);
+
+  const local = mergeWith(apply(url('./files'), [
+    template({
+      ...strings,
       dot: '.',
       ...options,
       cordova_version: latestVersions.cordovaVersion,
       framework_version: latestVersions.frameworkVersion,
       xcode_version: latestVersions.xcodeVersion,
-      projectDirectory: join(workspace.newProjectRoot||'', options.name||''),
+      projectDirectory: join(workspace.newProjectRoot || '', options.name || ''),
     }),
-    move(join(workspace.newProjectRoot||'', options.name||''))
+    move(join(workspace.newProjectRoot || '', options.name || ''))
   ]), MergeStrategy.Overwrite);
+
+  return branchAndMerge(chain([monacaLib, local]), MergeStrategy.Overwrite);
 }
 
 function OverwriteOthersFile(options: MonacaApplicationOptions, workspace: WorkspaceSchema) {
@@ -72,7 +82,7 @@ function OverwriteOthersFile(options: MonacaApplicationOptions, workspace: Works
       dot: '.',
       ...options,
     }),
-    move(join(workspace.newProjectRoot||'', options.name||'', 'src/app')),
+    move(join(workspace.newProjectRoot || '', options.name || '', 'src/app')),
   ]), MergeStrategy.Overwrite);
 }
 
@@ -93,5 +103,5 @@ export function application(options: MonacaApplicationOptions): Rule {
       ]), MergeStrategy.Overwrite),
     ])(host, _context);
   };
-  
+
 }

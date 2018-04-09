@@ -76,8 +76,8 @@ ng new <project name> -c @monaca/schematics [--name=<application name>]
 
  + install
    + [x] install command
-   + [ ] template using
-     + [ ] useing [monaca-lib template](https://github.com/monaca/monaca-lib/tree/master/src/template)
+   + template using
+     + [x] useing [monaca-lib template](https://github.com/monaca/monaca-lib/tree/master/src/template)
  + local building
    + [ ] server
    + [ ] genarate [monaca projectid](https://github.com/monaca/monaca-lib/blob/master/src/localkit.js#L229)

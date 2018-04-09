@@ -1,6 +1,8 @@
 
 import { latestVersions as originLatestVersion } from '@schematics/angular/utility/latest-versions';
 
+const packageJSON = require('../../package.json');
+
 export const latestVersions = {
   ...originLatestVersion,
   cordovaVersion: '7.1',
@@ -15,8 +17,8 @@ export const latestVersions = {
   ngxOnsenui:'~4.1.0',
 
   // dev
-  monacaLib: '^2.6.1',
-  cheerio: '1.0.0-rc.2',
+  monacaLib: packageJSON.devDependencies['monaca-lib'],
+  cheerio: packageJSON.devDependencies['cheerio'],
 
 };
 
