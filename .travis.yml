@@ -8,6 +8,7 @@ before_script:
   - npm install -g @angular/cli@6.0.0-rc.2
   - npm install -g @angular-devkit/schematics-cli@0.5.4
   - npm link
+  - npm install @angular/cli@6.0.0-rc.2
 after_failure:
   - cat /home/travis/build/MSakamaki/-monaca-schematics/npm-debug.log
 notifications:
