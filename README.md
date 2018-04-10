@@ -11,7 +11,7 @@
 ```sh
 
 npm install -g @angular/cli@6.0.0-rc.2
-# windows for: npm install -g @angular/cli@6.0.0-rc.2
+# windows for: npm install -g @angular/cli@6.0.0-rc.1
 # see: https://github.com/angular/angular-cli/issues/10227
 npm install -g @angular-devkit/schematics-cli@0.5.4
 
@@ -68,7 +68,9 @@ ng new <project name> -c @monaca/schematics [--name=<application name>]
 
  + [ ] npm publish
  + [x] npm start
- + [x] npm build
+ + [x] ng build
+ + [x] ng test
+ + [ ] ng e2e
  + add `ng generate`
    + [ ] component
  + [ ] monaca upload
@@ -81,7 +83,7 @@ ng new <project name> -c @monaca/schematics [--name=<application name>]
    + template using
      + [x] useing [monaca-lib template](https://github.com/monaca/monaca-lib/tree/master/src/template)
  + local building
-   + [ ] server
+   + [x] server
    + [ ] genarate [monaca projectid](https://github.com/monaca/monaca-lib/blob/master/src/localkit.js#L229)
  + remote monaca 
    + [ ] upload monaca cloud

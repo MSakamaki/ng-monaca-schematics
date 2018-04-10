@@ -33,7 +33,6 @@ install:
   - npm uninstall @angular/cli
 
 test_script:
-# テスト用のコマンドを指定します
   - npm run test
   - mkdir tmp
   - cd tmp

@@ -17,10 +17,11 @@ import { getWorkspace, WorkspaceSchema } from '@schematics/angular/utility/confi
 import { latestVersions } from '../utility/latest-versions';
 import { join } from 'path';
 import { updatePakageJson } from './update.pakagejson';
-import { fileReadJsonText } from '../utility/readTree';
+import { fileReadJsonText, fileReadText } from '../utility/readTree';
 import { updateAppModueTs } from './update.app.module';
 import { updateNgJson } from './update.angular.json';
 import { MonacaApplicationOptions } from './schema';
+import { updateAppComponentSpecTs } from './update.app.component.spec';
 
 
 function overrideWith(options: MonacaApplicationOptions, workspace: WorkspaceSchema) {
@@ -29,7 +30,8 @@ function overrideWith(options: MonacaApplicationOptions, workspace: WorkspaceSch
     ngJson: join('angular.json'),
     ts: {
       vendor: join('src', 'vendor.ts'),
-      mainApp: join(workspace.newProjectRoot || '', options.name || '', 'src/app', 'app.module.ts')
+      mainApp: join(workspace.newProjectRoot || '', options.name || '', 'src/app', 'app.module.ts'),
+      mainAppComponentSpec: join(workspace.newProjectRoot || '', options.name || '', 'src/app', '/app.component.spec.ts')
     }
   };
 
@@ -42,6 +44,11 @@ function overrideWith(options: MonacaApplicationOptions, workspace: WorkspaceSch
     host.overwrite(filePath.ngJson, dataNgJson);
 
     updateAppModueTs(host, filePath.ts.mainApp);
+
+    updateAppComponentSpecTs(host, filePath.ts.mainAppComponentSpec);
+
+    console.log(filePath.ts.mainAppComponentSpec, fileReadText(host, filePath.ts.mainAppComponentSpec));
+
     return host;
   };
 }
@@ -73,8 +80,6 @@ function injectMonaca(options: MonacaApplicationOptions, workspace: WorkspaceSch
 }
 
 function OverwriteOthersFile(options: MonacaApplicationOptions, workspace: WorkspaceSchema) {
-
-
   return mergeWith(apply(url('./other-files'), [
     template({
       ...strings,
