@@ -23,16 +23,20 @@ install:
   - npm install -g del-cli
 
   # npm install
-
   - npm install
-  - npm install @angular/cli@6.0.0-rc.2
+
   # global install
   - npm link
 
 test_script:
 # テスト用のコマンドを指定します
   - npm run test
-  - npm run e2e
+  - mkdir tmp
+  - cd tmp
+  - ng new myapp -c @monaca/schematics
+  - cd myapp
+  - ng lint
+  - ng build
 
 environment:
   matrix:

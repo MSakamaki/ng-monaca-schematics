@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "description": "Monaca Anguler schematics",
   "scripts": {
+    "postinstall": "npm install @angular/cli@6.0.0-rc.2 --no-save",
     "clean": "del-cli src/**/*.js src/**/*.js.map src/**/*.d.ts !src/*/files/**/*.js",
     "build": "npm run clean && tsc -p tsconfig.json",
     "w": "tsc -p tsconfig.json -w",
