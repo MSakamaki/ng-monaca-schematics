@@ -1,0 +1,36 @@
+{
+  "compilerOptions": {
+    "baseUrl": "tsconfig",
+    "lib": [
+      "es2017",
+      "dom"
+    ],
+    "outDir": "_build",
+    "declaration": true,
+    "experimentalDecorators":true,
+    "emitDecoratorMetadata": true,
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "noEmitOnError": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "noUnusedParameters": true,
+    "noUnusedLocals": true,
+    "rootDir": ".",
+    "skipDefaultLibCheck": true,
+    "skipLibCheck": true,
+    "sourceMap": true,
+    "strictNullChecks": true,
+    "target": "es2016",
+    "types": [
+      "jest",
+      "node"
+    ]
+  },
+  "include": [
+    "**/*"
+  ],
+  "exclude": [
+  ]
+}

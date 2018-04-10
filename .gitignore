@@ -22,7 +22,7 @@ yarn-error.log*
 .DS_Store
 
 # others
-work/
-
+e2e/_tmp/
+e2e/_build/
 
 

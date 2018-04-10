@@ -6,7 +6,10 @@
     "clean": "del-cli src/**/*.js src/**/*.js.map src/**/*.d.ts !src/*/files/**/*.js",
     "build": "npm run clean && tsc -p tsconfig.json",
     "w": "tsc -p tsconfig.json -w",
-    "test": "npm run build && jasmine src/**/*_spec.js"
+    "test": "npm run build && jasmine src/**/*_spec.js",
+    "checkformat": "prettier src/*/files/**/*.js --list-different",
+    "format": "prettier src/*/files/**/*.js --write",
+    "e2e": "del-cli e2e/_tmp e2e/_build && mkdir e2e/_tmp && tsc -p e2e/tsconfig.json && jest --maxWorkers=1 e2e/_build/test"
   },
   "keywords": [
     "schematics",
@@ -43,8 +46,16 @@
     "typescript": "~2.6.2"
   },
   "devDependencies": {
+    "@types/jest": "^22.2.2",
     "cheerio": "^1.0.0-rc.2",
     "cpx": "^1.5.0",
-    "del-cli": "^1.1.0"
+    "del-cli": "^1.1.0",
+    "jest": "^22.4.3",
+    "prettier": "^1.11.1"
+  },
+  "jest": {
+    "modulePathIgnorePatterns": [
+      "tmp"
+    ]
   }
 }

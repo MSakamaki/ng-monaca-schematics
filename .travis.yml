@@ -14,10 +14,6 @@ notifications:
   slack: gxp:ov6kUHOOChvUDSgHMCLnUiuu
 script:
   - npm run test
-  - mkdir work && cd work
-  - ng new myapp -c @monaca/schematics
-  - cd myapp
-  - ng lint
-  - ng build
+  - npm run e2e
 cache:
   directories: node_modules

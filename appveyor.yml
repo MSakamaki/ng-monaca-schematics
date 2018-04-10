@@ -25,13 +25,18 @@ install:
   # npm install
   - npm install
 
+  # global install
+  - npm link
+
 test_script:
 # テスト用のコマンドを指定します
   - npm test
+  - npm e2e
 
 environment:
   matrix:
     - nodejs_version: 8
+    - nodejs_version: stable
 
 init:
   - git config --global core.autocrlf false
