@@ -40,6 +40,7 @@ test_script:
   - cd myapp
   - ng lint
   - ng build
+  - ng test --browsers ChromeHeadless
 
 environment:
   matrix:

@@ -32,7 +32,7 @@ describe('create Schema Workspace', () => {
     'should test',
     () => {
       Init();
-      expect(ngTest()).toContain('Executed 3 of 3 SUCCESS');
+      expect(ngTest('--browsers ChromeHeadless')).toContain('Executed 3 of 3 SUCCESS');
     },
     1000000
   );
