@@ -18,15 +18,19 @@ install:
   - npm install -g node-gyp
 
   # global install
-  - npm install -g @angular/cli@6.0.0-rc.2
+  # see: anguler/cli issues: https://github.com/angular/angular-cli/issues/10227
+  - npm install -g @angular/cli@6.0.0-rc.1
   - npm install -g @angular-devkit/schematics-cli@0.5.4
-  - npm install -g del-cli
 
   # npm install
   - npm install
 
-  # global install
+  # link
   - npm link
+
+  # after local remove cli
+  # see: anguler/cli issues: https://github.com/angular/angular-cli/issues/10227
+  - npm uninstall @angular/cli
 
 test_script:
 # テスト用のコマンドを指定します

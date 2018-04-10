@@ -11,6 +11,8 @@
 ```sh
 
 npm install -g @angular/cli@6.0.0-rc.2
+# windows for: npm install -g @angular/cli@6.0.0-rc.2
+# see: https://github.com/angular/angular-cli/issues/10227
 npm install -g @angular-devkit/schematics-cli@0.5.4
 
 # building
