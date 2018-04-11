@@ -5,10 +5,7 @@ const fs = require("fs");
 const path = require("path");
 const angularJONS = require("../angular.json");
 const appName = process.argv[2];
-const indexFilePath = path.resolve(
-  __dirname,
-  `../${angularJONS.newProjectRoot}/${appName}/www/index.html`
-);
+const indexFilePath = path.resolve(__dirname, `../www/index.html`);
 
 console.log("About to rewrite file: ", indexFilePath);
 

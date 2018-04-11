@@ -1,8 +1,8 @@
-
 import {
   Rule,
   SchematicContext,
   SchematicsException,
+  // externalSchematic,
   Tree,
   apply,
   chain,
@@ -10,18 +10,19 @@ import {
   mergeWith,
   move,
   schematic,
+  MergeStrategy,
 } from '@angular-devkit/schematics';
 import {
   NodePackageInstallTask,
   NodePackageLinkTask,
   RepositoryInitializerTask,
 } from '@angular-devkit/schematics/tasks';
-
 import { NgNewMonacaOptions } from './schema';
 import { MonacaApplicationOptions } from '../application/schema';
 import { MonacaWorkspaceOptions } from '../workspace/schema';
 
-export function ngNew(options: NgNewMonacaOptions): Rule {
+
+export default function (options: NgNewMonacaOptions): Rule {
   if (!options.name) {
     throw new SchematicsException(`Invalid options, "name" is required.`);
   }
@@ -36,6 +37,7 @@ export function ngNew(options: NgNewMonacaOptions): Rule {
     newProjectRoot: options.newProjectRoot || 'projects',
   };
   const applicationOptions: MonacaApplicationOptions = {
+    projectRoot: '',
     name: options.name,
     inlineStyle: options.inlineStyle,
     inlineTemplate: options.inlineTemplate,
@@ -53,7 +55,7 @@ export function ngNew(options: NgNewMonacaOptions): Rule {
         schematic('application', applicationOptions),
         move(options.directory || options.name),
         tree => Tree.optimize(tree),
-      ]),
+      ]), MergeStrategy.Overwrite
     ),
     (_host: Tree, context: SchematicContext) => {
       let packageTask;

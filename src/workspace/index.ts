@@ -25,7 +25,6 @@ function updateGitIgnore(_options: MonacaWorkspaceOptions) {
   const filePath = '.gitignore';
 
   return (host: Tree, _context: SchematicContext) => {
-    // context.logger.info('updateGitIgnore Action: ' + JSON.stringify(options));
 
     host.overwrite(filePath, fileReadText(host, filePath) + appendGitIgnore);
     return host;
@@ -35,7 +34,7 @@ function updateGitIgnore(_options: MonacaWorkspaceOptions) {
 function overwriteMonaca(options: MonacaWorkspaceOptions) {
   return mergeWith(apply(url('./files'), [
     template({
-      ...strings,
+      utils: strings,
       dot: '.',
       ...options,
     }),
@@ -43,8 +42,12 @@ function overwriteMonaca(options: MonacaWorkspaceOptions) {
 }
 
 export function workspace(options: MonacaWorkspaceOptions): Rule {
+  // TODO: correct val
+  options.commit = {
+    name: '@monaca/schema',
+    email: 'schema@monaca.com',
+  };
   return (host: Tree, _context: SchematicContext) => {
-    // const workspace = getWorkspace(host);
     return chain([
       externalSchematic('@schematics/angular', 'workspace', options),
       branchAndMerge(chain([

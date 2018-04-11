@@ -10,10 +10,8 @@
 
 ```sh
 
-npm install -g @angular/cli@6.0.0-rc.2
-# windows for: npm install -g @angular/cli@6.0.0-rc.1
-# see: https://github.com/angular/angular-cli/issues/10227
-npm install -g @angular-devkit/schematics-cli@0.5.4
+npm install -g @angular/cli@next # 6.0.0-rc.3
+npm install -g @angular-devkit/schematics-cli@latest # 0.5.5
 
 # building
 git clone https://github.com/MSakamaki/-monaca-schematics.git
@@ -51,14 +49,14 @@ ng new <project name> -c @monaca/schematics [--name=<application name>]
  1. monaca cloud initialized
    + copy or rename the file from `sample.monaca.config.json` to `monaca.config.json`
    + Write ID and password to `monaca.config.json`
-   + `npm run [applicationName].init`
+   + `npm run monaca.init`
  2. remote debugging
-   + `npm run [applicationName].upload`
+   + `npm run monaca.upload`
    + open browser [monaca ide page](https://monaca.mobi/en/dashboard)
    + open youre project
    + to preview or run on device
  3. remote build
-   + `npm run [applicationName].build`
+   + `npm run monaca.build`
    + open browser [monaca ide page](https://monaca.mobi/en/dashboard)
    + open youre project
    + open menu [buld] to build history
@@ -71,6 +69,7 @@ ng new <project name> -c @monaca/schematics [--name=<application name>]
  + [x] ng build
  + [x] ng test
  + [ ] ng e2e
+ + [ ] update monaca [browserlist](https://github.com/angular/devkit/blob/master/packages/schematics/angular/application/files/root/browserslist)
  + add `ng generate`
    + [ ] component
  + [ ] monaca upload

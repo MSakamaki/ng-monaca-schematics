@@ -17,7 +17,7 @@ import { getWorkspace, WorkspaceSchema } from '@schematics/angular/utility/confi
 import { latestVersions } from '../utility/latest-versions';
 import { join } from 'path';
 import { updatePakageJson } from './update.pakagejson';
-import { fileReadJsonText, fileReadText } from '../utility/readTree';
+import { fileReadJsonText } from '../utility/readTree';
 import { updateAppModueTs } from './update.app.module';
 import { updateNgJson } from './update.angular.json';
 import { MonacaApplicationOptions } from './schema';
@@ -30,8 +30,8 @@ function overrideWith(options: MonacaApplicationOptions, workspace: WorkspaceSch
     ngJson: join('angular.json'),
     ts: {
       vendor: join('src', 'vendor.ts'),
-      mainApp: join(workspace.newProjectRoot || '', options.name || '', 'src/app', 'app.module.ts'),
-      mainAppComponentSpec: join(workspace.newProjectRoot || '', options.name || '', 'src/app', '/app.component.spec.ts')
+      mainApp: join( 'src/app', 'app.module.ts'),
+      mainAppComponentSpec: join('src/app', '/app.component.spec.ts')
     }
   };
 
@@ -47,8 +47,6 @@ function overrideWith(options: MonacaApplicationOptions, workspace: WorkspaceSch
 
     updateAppComponentSpecTs(host, filePath.ts.mainAppComponentSpec);
 
-    console.log(filePath.ts.mainAppComponentSpec, fileReadText(host, filePath.ts.mainAppComponentSpec));
-
     return host;
   };
 }
@@ -57,15 +55,15 @@ function injectMonaca(options: MonacaApplicationOptions, workspace: WorkspaceSch
 
   const monacaLib = mergeWith(apply(url('../../node_modules/monaca-lib/src/template/components'), [
     template({
-      ...strings,
+      utils: strings,
       ...options,
     }),
-    move(join(workspace.newProjectRoot || '', options.name || '', 'src/components')),
+    move(join('src/components')),
   ]), MergeStrategy.Overwrite);
 
   const local = mergeWith(apply(url('./files'), [
     template({
-      ...strings,
+      utils: strings,
       dot: '.',
       ...options,
       cordova_version: latestVersions.cordovaVersion,
@@ -73,28 +71,26 @@ function injectMonaca(options: MonacaApplicationOptions, workspace: WorkspaceSch
       xcode_version: latestVersions.xcodeVersion,
       projectDirectory: join(workspace.newProjectRoot || '', options.name || ''),
     }),
-    move(join(workspace.newProjectRoot || '', options.name || ''))
   ]), MergeStrategy.Overwrite);
 
   return branchAndMerge(chain([monacaLib, local]), MergeStrategy.Overwrite);
 }
 
-function OverwriteOthersFile(options: MonacaApplicationOptions, workspace: WorkspaceSchema) {
+function OverwriteOthersFile(options: MonacaApplicationOptions, _workspace: WorkspaceSchema) {
   return mergeWith(apply(url('./other-files'), [
     template({
-      ...strings,
-      // 'if-flat': (s: string) => options.flat ? '' : s,
+      utils: strings,
       dot: '.',
       ...options,
     }),
-    move(join(workspace.newProjectRoot || '', options.name || '', 'src/app')),
+    move('src/app'),
   ]), MergeStrategy.Overwrite);
 }
 
-
+console.log(OverwriteOthersFile, injectMonaca, overrideWith, getWorkspace);
 
 export function application(options: MonacaApplicationOptions): Rule {
-
+  
   return (host: Tree, _context: SchematicContext) => {
     const workspace = getWorkspace(host);
     return chain([
@@ -105,7 +101,7 @@ export function application(options: MonacaApplicationOptions): Rule {
       overrideWith(options, workspace),
       branchAndMerge(chain([
         OverwriteOthersFile(options, workspace),
-      ]), MergeStrategy.Overwrite),
+      ]), MergeStrategy.Overwrite)
     ])(host, _context);
   };
 

@@ -1,7 +1,7 @@
 const Monaca = require("monaca-lib").Monaca;
 const monaca = new Monaca({ clientType: "api" });
 const path = require("path");
-const config = require("../../../monaca.config.json");
+const config = require("../monaca.config.json");
 
 const authPromise = monaca.login(config.user.id, config.user.pass).then(
   function() {

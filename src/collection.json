@@ -5,17 +5,20 @@
     "application": {
       "description": "new application workspace",
       "factory": "./application/index#application",
-      "schema": "../node_modules/@schematics/angular/application/schema.json"
+      "schema": "../node_modules/@schematics/angular/application/schema.json",
+      "hidden": true
     },
     "workspace": {
       "description": "new workspace",
       "factory": "./workspace/index#workspace",
-      "schema": "../node_modules/@schematics/angular/workspace/schema.json"
+      "schema": "../node_modules/@schematics/angular/workspace/schema.json",
+      "hidden": true
     },
     "ng-new": {
       "description": "new workspace",
-      "factory": "./ng-new/index#ngNew",
-      "schema": "../node_modules/@schematics/angular/ng-new/schema.json"
+      "factory": "./ng-new",
+      "schema": "../node_modules/@schematics/angular/ng-new/schema.json",
+      "hidden": true
     }
   }
 }

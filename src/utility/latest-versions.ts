@@ -17,7 +17,7 @@ export const latestVersions = {
   ngxOnsenui:'~4.1.0',
 
   // dev
-  monacaLib: packageJSON.devDependencies['monaca-lib'],
+  monacaLib: packageJSON.dependencies['monaca-lib'],
   cheerio: packageJSON.devDependencies['cheerio'],
 
 };

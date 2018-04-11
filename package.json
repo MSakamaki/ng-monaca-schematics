@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "description": "Monaca Anguler schematics",
   "scripts": {
-    "postinstall": "npm install @angular/cli@6.0.0-rc.2 --no-save",
+    "postinstall": "npm install @angular/cli@next --no-save",
     "clean": "del-cli src/**/*.js src/**/*.js.map src/**/*.d.ts !src/*/files/**/*.js",
     "build": "npm run clean && tsc -p tsconfig.json",
     "w": "tsc -p tsconfig.json -w",
@@ -37,9 +37,9 @@
   },
   "schematics": "./src/collection.json",
   "dependencies": {
-    "@angular-devkit/core": "^0.5.4",
-    "@angular-devkit/schematics": "^0.5.4",
-    "@schematics/angular": "^0.5.4",
+    "@angular-devkit/core": "latest",
+    "@angular-devkit/schematics": "latest",
+    "@schematics/angular": "latest",
     "@types/jasmine": "^2.8.6",
     "@types/node": "^9.6.2",
     "jasmine": "^2.8.6",

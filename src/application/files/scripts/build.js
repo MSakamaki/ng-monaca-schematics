@@ -1,7 +1,7 @@
 const Monaca = require("monaca-lib").Monaca;
 const monaca = new Monaca({ clientType: "api" });
 const path = require("path");
-const config = require("../../../monaca.config.json");
+const config = require("../monaca.config.json");
 
 const projectId = monaca.getProjectId(path.resolve(__dirname, "../"));
 

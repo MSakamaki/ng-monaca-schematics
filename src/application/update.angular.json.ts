@@ -14,11 +14,11 @@ export const updateNgJson = (originJson: any, _projectName: string = '', _appNam
 
   originJson.projects[_appName].architect.build.options = {
     ...originJson.projects[_appName].architect.build.options,
-    outputPath: `${_projectName}/${_appName}/www`,
+    outputPath: `www`,
     assets: originJson.projects[_appName].architect.build.options.assets.concat([
       {
         glob: '**/*',
-        input: `${_projectName}/${_appName}/src/components`,
+        input: `src/components`,
         output: 'components'
       }
     ]),
@@ -30,15 +30,15 @@ export const updateNgJson = (originJson: any, _projectName: string = '', _appNam
         input: 'node_modules/onsenui/css/onsenui.css'
       },
       {
-        input: `projects/${_appName}/src/components/loader.css`
+        input: `src/components/loader.css`
       },
       {
-        input: `projects/${_appName}/src/css/style.css`
+        input: `src/css/style.css`
       }
     ]),
     scripts: originJson.projects[_appName].architect.build.options.scripts.concat([
       {
-        input: `${_projectName}/${_appName}/src/components/loader.js`
+        input: `src/components/loader.js`
       }
     ]),
   };

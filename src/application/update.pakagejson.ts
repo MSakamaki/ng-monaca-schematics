@@ -7,9 +7,9 @@ export const updatePakageJson = (originPakageJson: any, appname: string) => ({
   scripts: {
     ...originPakageJson.scripts,
     build: `ng build --prod && node ./scripts/replace.index.html.js ${appname}`,
-    [`${appname}.init`]: `node ./projects/${appname}/script/create.js`,
-    [`${appname}.upload`]: `node ./projects/${appname}/script/upload.js`,
-    [`${appname}.build`]: `node ./projects/${appname}/script/build.js`,
+    [`monaca.init`]: `node ./scripts/create.js`,
+    [`monaca.upload`]: `node ./scripts/upload.js`,
+    [`monaca.build`]: `node ./scripts/build.js`,
   },
 
   dependencies: {
