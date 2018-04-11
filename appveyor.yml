@@ -18,24 +18,20 @@ install:
   - npm install -g node-gyp
 
   # global install
+  - npm uninstall -g @angular/cli
+  - npm uninstall -g @angular-devkit/schematics-cli
   - npm install -g @angular/cli@next
   - npm install -g @angular-devkit/schematics-cli@latest
+  - ng --version
 
   # npm install
   - npm install
 
-  # link
-  - npm link
-
 test_script:
   - npm run test
-  - mkdir tmp
-  - cd tmp
-  - ng new myapp -c @monaca/schematics
-  - cd myapp
-  - ng lint
-  - ng build
-  - ng test --browsers ChromeHeadless
+  - npm run build
+  - npm link
+  - APPVEYOR=1 npm run e2e
 
 environment:
   matrix:

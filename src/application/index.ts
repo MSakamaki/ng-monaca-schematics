@@ -87,8 +87,6 @@ function OverwriteOthersFile(options: MonacaApplicationOptions, _workspace: Work
   ]), MergeStrategy.Overwrite);
 }
 
-console.log(OverwriteOthersFile, injectMonaca, overrideWith, getWorkspace);
-
 export function application(options: MonacaApplicationOptions): Rule {
   
   return (host: Tree, _context: SchematicContext) => {

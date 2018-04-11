@@ -18,7 +18,7 @@ describe('create Schema Workspace', () => {
       expect(buildMessage).toContain('chunk {styles} styles.js, styles.js.map (styles)');
       expect(buildMessage).toContain('chunk {vendor} vendor.js, vendor.js.map (vendor)');
     },
-    1000000
+    3000000
   );
   it(
     'should lint',
@@ -26,7 +26,7 @@ describe('create Schema Workspace', () => {
       Init();
       expect(ngLint()).toContain('All files pass linting.');
     },
-    1000000
+    3000000
   );
   it(
     'should test',
@@ -34,6 +34,6 @@ describe('create Schema Workspace', () => {
       Init();
       expect(ngTest('--browsers ChromeHeadless')).toContain('Executed 3 of 3 SUCCESS');
     },
-    1000000
+    3000000
   );
 });
