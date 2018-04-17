@@ -1,4 +1,4 @@
-import { latestVersions } from "../utility/latest-versions";
+import { latestVersions } from '../utility/latest-versions';
 
 export const updatePakageJson = (originPakageJson: any, appname: string) => ({
   ...originPakageJson,
@@ -18,7 +18,7 @@ export const updatePakageJson = (originPakageJson: any, appname: string) => ({
     'cordova-plugin-splashscreen': latestVersions.cordovaPluginSplashscreen,
     'cordova-plugin-whitelist': latestVersions.cordovaPluginWhitelist,
     'monaca-plugin-monaca-core': latestVersions.monacaPluginMonacaCore,
-    'onsenui': latestVersions.onsenui,
+    onsenui: latestVersions.onsenui,
     'ngx-onsenui': latestVersions.ngxOnsenui,
   },
   cordova: {
@@ -26,13 +26,12 @@ export const updatePakageJson = (originPakageJson: any, appname: string) => ({
       'cordova-plugin-whitelist': {},
       'cordova-plugin-splashscreen': {},
       'cordova-custom-config': {},
-      'monaca-plugin-monaca-core': {}
-    }
+      'monaca-plugin-monaca-core': {},
+    },
   },
   devDependencies: {
     ...originPakageJson.devDependencies,
     'monaca-lib': latestVersions.monacaLib,
-    'cheerio': latestVersions.cheerio,
-  }
+    cheerio: latestVersions.cheerio,
+  },
 });
-

@@ -1,19 +1,20 @@
 import {
+  MergeStrategy,
   Rule,
   SchematicContext,
   Tree,
-  externalSchematic,
-  chain,
-  mergeWith,
   apply,
-  url,
+  branchAndMerge,
+  chain,
+  externalSchematic,
+  mergeWith,
   template,
-  MergeStrategy,
-  branchAndMerge
+  url,
 } from '@angular-devkit/schematics';
 
 import { strings } from '@angular-devkit/core';
 import { MonacaWorkspaceOptions } from './schema';
+
 import { fileReadText } from '../utility/readTree';
 
 const appendGitIgnore = `
@@ -25,36 +26,40 @@ function updateGitIgnore(_options: MonacaWorkspaceOptions) {
   const filePath = '.gitignore';
 
   return (host: Tree, _context: SchematicContext) => {
-
     host.overwrite(filePath, fileReadText(host, filePath) + appendGitIgnore);
+
     return host;
   };
 }
 
 function overwriteMonaca(options: MonacaWorkspaceOptions) {
-  return mergeWith(apply(url('./files'), [
-    template({
-      utils: strings,
-      dot: '.',
-      ...options,
-    }),
-  ]), MergeStrategy.Overwrite);
+  return mergeWith(
+    apply(url('./files'), [
+      template({
+        utils: strings,
+        dot: '.',
+        ...options,
+      }),
+    ]),
+    MergeStrategy.Overwrite,
+  );
 }
 
 export function workspace(options: MonacaWorkspaceOptions): Rule {
-  // TODO: correct val
+  // SEE: https://github.com/angular/devkit/pull/699
   options.commit = {
-    name: '@monaca/schema',
-    email: 'schema@monaca.com',
+    name: '@monaca/chematic',
+    email: 'chematic@monaca.com',
   };
+
   return (host: Tree, _context: SchematicContext) => {
     return chain([
       externalSchematic('@schematics/angular', 'workspace', options),
-      branchAndMerge(chain([
-        overwriteMonaca(options),
-      ]), MergeStrategy.Overwrite),
+      branchAndMerge(
+        chain([overwriteMonaca(options)]),
+        MergeStrategy.Overwrite,
+      ),
       updateGitIgnore(options),
     ])(host, _context);
   };
-
 }

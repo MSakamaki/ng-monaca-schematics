@@ -1,4 +1,3 @@
-
 import { latestVersions as originLatestVersion } from '@schematics/angular/utility/latest-versions';
 
 const packageJSON = require('../../package.json');
@@ -14,11 +13,9 @@ export const latestVersions = {
   cordovaPluginWhitelist: '1.3.3',
   monacaPluginMonacaCore: '3.2.0',
   onsenui: '~2.9.2',
-  ngxOnsenui:'~4.1.0',
+  ngxOnsenui: '~4.1.0',
 
   // dev
   monacaLib: packageJSON.dependencies['monaca-lib'],
   cheerio: packageJSON.devDependencies['cheerio'],
-
 };
-

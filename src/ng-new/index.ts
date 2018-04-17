@@ -1,8 +1,8 @@
 import {
+  MergeStrategy,
   Rule,
   SchematicContext,
   SchematicsException,
-  // externalSchematic,
   Tree,
   apply,
   chain,
@@ -10,7 +10,6 @@ import {
   mergeWith,
   move,
   schematic,
-  MergeStrategy,
 } from '@angular-devkit/schematics';
 import {
   NodePackageInstallTask,
@@ -18,11 +17,11 @@ import {
   RepositoryInitializerTask,
 } from '@angular-devkit/schematics/tasks';
 import { NgNewMonacaOptions } from './schema';
+
 import { MonacaApplicationOptions } from '../application/schema';
 import { MonacaWorkspaceOptions } from '../workspace/schema';
 
-
-export default function (options: NgNewMonacaOptions): Rule {
+export default function(options: NgNewMonacaOptions): Rule {
   if (!options.name) {
     throw new SchematicsException(`Invalid options, "name" is required.`);
   }
@@ -41,6 +40,7 @@ export default function (options: NgNewMonacaOptions): Rule {
     name: options.name,
     inlineStyle: options.inlineStyle,
     inlineTemplate: options.inlineTemplate,
+    prefix: options.prefix,
     viewEncapsulation: options.viewEncapsulation,
     routing: options.routing,
     style: options.style,
@@ -55,12 +55,15 @@ export default function (options: NgNewMonacaOptions): Rule {
         schematic('application', applicationOptions),
         move(options.directory || options.name),
         tree => Tree.optimize(tree),
-      ]), MergeStrategy.Overwrite
+      ]),
+      MergeStrategy.Overwrite,
     ),
     (_host: Tree, context: SchematicContext) => {
       let packageTask;
       if (!options.skipInstall) {
-        packageTask = context.addTask(new NodePackageInstallTask(options.directory));
+        packageTask = context.addTask(
+          new NodePackageInstallTask(options.directory),
+        );
         if (options.linkCli) {
           packageTask = context.addTask(
             new NodePackageLinkTask('@angular/cli', options.directory),
@@ -69,15 +72,15 @@ export default function (options: NgNewMonacaOptions): Rule {
         }
       }
       if (!options.skipGit) {
-        const commit = typeof options.commit == 'object'
-          ? options.commit
-          : (!!options.commit ? {} : false);
+        const commit =
+          typeof options.commit == 'object'
+            ? options.commit
+            : !!options.commit
+              ? {}
+              : false;
 
         context.addTask(
-          new RepositoryInitializerTask(
-            options.directory,
-            commit,
-          ),
+          new RepositoryInitializerTask(options.directory, commit),
           packageTask ? [packageTask] : [],
         );
       }

@@ -1,4 +1,4 @@
-# MONACA + Angular 5+ schematics 
+# MONACA + Angular 6+ schematics 
 
 [![Build Status](https://travis-ci.org/MSakamaki/-monaca-schematics.svg?branch=master)](https://travis-ci.org/MSakamaki/-monaca-schematics)
 [![Build status(win)](https://ci.appveyor.com/api/projects/status/wikogf9fcyox6okh?svg=true)](https://ci.appveyor.com/project/MSakamaki/monaca-schematics)
@@ -9,9 +9,9 @@
 ### install
 
 ```sh
-
-npm install -g @angular/cli@next # 6.0.0-rc.3
-npm install -g @angular-devkit/schematics-cli@latest # 0.5.5
+# npm uninstall -g @angular/cli @angular-devkit/schematics-cli
+npm install -g @angular/cli@6.0.0-rc.5
+npm install -g @angular-devkit/schematics-cli@0.5.7
 
 # building
 git clone https://github.com/MSakamaki/-monaca-schematics.git

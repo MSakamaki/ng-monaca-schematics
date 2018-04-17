@@ -8,14 +8,16 @@ node_js:
 branches:
   only: master
 before_script:
-  - npm install -g @angular/cli@next
-  - npm install -g @angular-devkit/schematics-cli@latest
+  - npm install -g @angular/cli@6.0.0-rc.5
+  - npm install -g @angular-devkit/schematics-cli@0.5.7
   - npm link
 after_failure:
   - cat /home/travis/build/MSakamaki/-monaca-schematics/npm-debug.log
 notifications:
   slack: gxp:ov6kUHOOChvUDSgHMCLnUiuu
 script:
+  - npm run checkformat
+  - npm run tscfmt
   - npm run test
   - npm run e2e
 cache:

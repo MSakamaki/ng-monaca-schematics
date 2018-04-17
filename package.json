@@ -3,13 +3,16 @@
   "version": "0.0.0",
   "description": "Monaca Anguler schematics",
   "scripts": {
-    "postinstall": "npm install @angular/cli@next --no-save",
+    "postinstall": "npm install @angular/cli@6.0.0-rc.5 --no-save",
     "clean": "del-cli src/**/*.js src/**/*.js.map src/**/*.d.ts !src/*/files/**/*.js",
     "build": "npm run clean && tsc -p tsconfig.json",
     "w": "tsc -p tsconfig.json -w",
     "test": "npm run build && jasmine src/**/*_spec.js",
     "checkformat": "prettier src/*/files/**/*.js --list-different",
+    "tscfmt": "prettier src/*/*.ts e2e/**/*.ts --list-different",
     "format": "prettier src/*/files/**/*.js --write",
+    "tsfmt": "prettier src/*/*.ts e2e/**/*.ts --write",
+    "lint.check": "tslint-config-prettier-check ./tslint.json",
     "e2e": "del-cli e2e/_tmp e2e/_build && make-dir e2e/_tmp && tsc -p e2e/tsconfig.json && jest --maxWorkers=1 e2e/_build/test"
   },
   "keywords": [
@@ -37,9 +40,9 @@
   },
   "schematics": "./src/collection.json",
   "dependencies": {
-    "@angular-devkit/core": "latest",
-    "@angular-devkit/schematics": "latest",
-    "@schematics/angular": "latest",
+    "@angular-devkit/core": "0.5.7",
+    "@angular-devkit/schematics": "0.5.7",
+    "@schematics/angular": "0.5.7",
     "@types/jasmine": "^2.8.6",
     "@types/node": "^9.6.2",
     "jasmine": "^2.8.6",
@@ -53,7 +56,10 @@
     "del-cli": "^1.1.0",
     "jest": "^22.4.3",
     "make-dir-cli": "^1.0.0",
-    "prettier": "^1.11.1"
+    "prettier": "^1.11.1",
+    "tslint": "^5.9.1",
+    "tslint-config-prettier": "^1.10.0",
+    "tslint-plugin-prettier": "^1.3.0"
   },
   "jest": {
     "modulePathIgnorePatterns": [

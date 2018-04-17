@@ -3,9 +3,7 @@ import { SchematicTestRunner } from '@angular-devkit/schematics/testing';
 import { Schema as WorkspaceOptions } from '@schematics/angular/workspace/schema';
 import * as path from 'path';
 
-
 const collectionPath = path.join(__dirname, '../collection.json');
-
 
 const exp = [
   '/README.md',
@@ -26,7 +24,11 @@ const workspaceOptions: WorkspaceOptions = {
 describe('workspace', () => {
   it('works', () => {
     const runner = new SchematicTestRunner('schematics', collectionPath);
-    const tree = runner.runSchematic('workspace', workspaceOptions, Tree.empty());
+    const tree = runner.runSchematic(
+      'workspace',
+      workspaceOptions,
+      Tree.empty(),
+    );
 
     expect(tree.files).toEqual(exp);
   });

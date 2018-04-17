@@ -1,8 +1,12 @@
-import { SchematicTestRunner, UnitTestTree } from '@angular-devkit/schematics/testing';
+import {
+  SchematicTestRunner,
+  UnitTestTree,
+} from '@angular-devkit/schematics/testing';
 
 import * as path from 'path';
 import { latestVersions } from '../utility/latest-versions';
 import { MonacaApplicationOptions } from './schema';
+
 import { MonacaWorkspaceOptions } from '../workspace/schema';
 
 const collectionPath = path.join(__dirname, '../collection.json');
@@ -13,6 +17,7 @@ const exp = [
   '/package.json',
   '/tsconfig.json',
   '/tslint.json',
+  '/src/tslint.json',
   '/.editorconfig',
   '/.gitignore',
   '/example.monaca.config.json',
@@ -130,32 +135,37 @@ fdescribe('application', () => {
   };
 
   beforeEach(() => {
-    workspaceTree = runner.runSchematic('workspace', workspaceOptions) as UnitTestTree;
+    workspaceTree = runner.runSchematic(
+      'workspace',
+      workspaceOptions,
+    ) as UnitTestTree;
     tree = runner.runSchematic('application', defaultOptions, workspaceTree);
   });
 
   describe('works', () => {
-
     it('treeOnly', () => {
-      const treeOnly = tree.files.filter(file => exp.findIndex(e => e === file) === -1);
+      const treeOnly = tree.files.filter(
+        file => exp.findIndex(e => e === file) === -1,
+      );
       expect(treeOnly).toEqual([]);
     });
 
     it('expOnly', () => {
-      const expOnly = exp.filter(e => tree.files.findIndex(file => e === file) === -1);
+      const expOnly = exp.filter(
+        e => tree.files.findIndex(file => e === file) === -1,
+      );
       expect(expOnly).toEqual([]);
     });
-
   });
-
 
   it('package.json check', () => {
     const text = tree.readContent('/package.json');
     const json = JSON.parse(text);
     expect(json.name).toBe('monaca-app');
     expect(json.displayName).toBe('Monaca Template Application');
-    expect(json.dependencies['cordova-custom-config']).toBe(latestVersions.cordovaCustomConfig);
+    expect(json.dependencies['cordova-custom-config']).toBe(
+      latestVersions.cordovaCustomConfig,
+    );
     expect(json.devDependencies['monaca-lib']).toBe(latestVersions.monacaLib);
   });
-
 });

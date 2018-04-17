@@ -1,16 +1,11 @@
 import * as ts from 'typescript';
-import {
-  findNodes,
-} from '@schematics/angular/utility/ast-utils';
-import {
-  InsertChange,
-  Change,
-} from '@schematics/angular/utility/change';
+import { findNodes } from '@schematics/angular/utility/ast-utils';
+import { InsertChange, Change } from '@schematics/angular/utility/change';
 
 export function addImportToTestBed(
   source: ts.SourceFile,
   specPath: string,
-  symbolName: string
+  symbolName: string,
 ): Change[] {
   return _appendToTestBed(source, specPath, symbolName, 'imports');
 }
@@ -18,12 +13,10 @@ export function addImportToTestBed(
 export function addSchemasToTestBed(
   source: ts.SourceFile,
   specPath: string,
-  symbolName: string
+  symbolName: string,
 ): Change[] {
   return _appendToTestBed(source, specPath, symbolName, 'schemas');
 }
-
-
 
 function _appendToTestBed(
   source: ts.SourceFile,
@@ -33,19 +26,20 @@ function _appendToTestBed(
 ): Change[] {
   const allCalls: ts.CallExpression[] = <any>findNodes(
     source,
-    ts.SyntaxKind.CallExpression
+    ts.SyntaxKind.CallExpression,
   );
 
   const configureTestingModuleObjectLiterals = allCalls
     .filter(c => c.expression.kind === ts.SyntaxKind.PropertyAccessExpression)
     .filter(
-      (c: any) => c.expression.name.getText(source) === 'configureTestingModule'
+      (c: any) =>
+        c.expression.name.getText(source) === 'configureTestingModule',
     )
     .map(
       c =>
         c.arguments[0].kind === ts.SyntaxKind.ObjectLiteralExpression
           ? c.arguments[0]
-          : null
+          : null,
     ) as ts.Expression[];
 
   if (configureTestingModuleObjectLiterals.length > 0) {
@@ -53,7 +47,11 @@ function _appendToTestBed(
       .getFirstToken(source)
       .getEnd();
     return [
-      new InsertChange(specPath, startPosition, `\n      ${metadataField}: [${symbolName}],`)
+      new InsertChange(
+        specPath,
+        startPosition,
+        `\n      ${metadataField}: [${symbolName}],`,
+      ),
     ];
   } else {
     return [];
