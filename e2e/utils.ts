@@ -62,7 +62,7 @@ export const ngTest = (args = '') =>
     .toString()
     .replace(replaceCmdColorExp, '');
 
-/** run unit testing project building */
+/** run e2e testing project building */
 export const ngE2e = (args = '') =>
   execSync(`${conf.app.ng} e2e ${args}`, { cwd: conf.app._ })
     .toString()

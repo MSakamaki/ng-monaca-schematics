@@ -45,12 +45,13 @@ describe('create Schema Workspace', () => {
     },
     3000000,
   );
-  it(
-    'should e2e',
-    () => {
-      Init();
-      expect(ngE2e()).toContain('should display welcome message');
-    },
-    3000000,
-  );
+  // TODO: https://github.com/angular/protractor/issues/4657
+  // it(
+  //   'should e2e',
+  //   () => {
+  //     Init();
+  //     expect(ngE2e()).toContain('should display welcome message');
+  //   },
+  //   3000000,
+  // );
 });
