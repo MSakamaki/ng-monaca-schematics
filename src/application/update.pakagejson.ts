@@ -31,6 +31,7 @@ export const updatePakageJson = (originPakageJson: any, appname: string) => ({
   },
   devDependencies: {
     ...originPakageJson.devDependencies,
+    monaca: latestVersions.monacaCli,
     'monaca-lib': latestVersions.monacaLib,
     cheerio: latestVersions.cheerio,
   },
