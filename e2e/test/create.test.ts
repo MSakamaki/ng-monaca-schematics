@@ -1,4 +1,4 @@
-import { Init, ngBuild, ngE2e, ngLint, ngTest } from '../utils';
+import { Init, ngBuild, ngLint, ngTest } from '../utils';
 
 describe('create Schema Workspace', () => {
   it(
