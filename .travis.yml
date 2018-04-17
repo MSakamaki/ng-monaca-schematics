@@ -16,8 +16,6 @@ after_failure:
 notifications:
   slack: gxp:ov6kUHOOChvUDSgHMCLnUiuu
 script:
-  - npm run checkformat
-  - npm run test
-  - npm run e2e
+  - npm run test.all
 cache:
   directories: node_modules

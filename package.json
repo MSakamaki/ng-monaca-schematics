@@ -8,10 +8,11 @@
     "build": "npm run clean && tsc -p tsconfig.json",
     "w": "tsc -p tsconfig.json -w",
     "test": "npm run build && jasmine src/**/*_spec.js",
-    "checkformat": "prettier src/*/files/**/*.js src/*/*.ts e2e/**/*.ts  --list-different",
+    "checkformat": "npm run clean && prettier src/*/files/**/*.js src/*/*.ts e2e/**/*.ts  --list-different",
     "format": "prettier src/*/files/**/*.js src/*/*.ts e2e/**/*.ts --write",
     "lint.check": "tslint-config-prettier-check ./tslint.json",
-    "e2e": "del-cli e2e/_tmp e2e/_build && make-dir e2e/_tmp && tsc -p e2e/tsconfig.json && jest --maxWorkers=1 e2e/_build/test"
+    "e2e": "del-cli e2e/_tmp e2e/_build && make-dir e2e/_tmp && tsc -p e2e/tsconfig.json && jest --maxWorkers=1 e2e/_build/test",
+    "test.all": "npm run checkformat && npm run test && npm run e2e"
   },
   "keywords": [
     "schematics",
