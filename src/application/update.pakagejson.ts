@@ -6,10 +6,10 @@ export const updatePakageJson = (originPakageJson: any, appname: string) => ({
   displayName: 'Monaca Template Application',
   scripts: {
     ...originPakageJson.scripts,
-    build: `ng build --prod && node ./scripts/replace.index.html.js ${appname}`,
-    [`monaca.init`]: `node ./scripts/create.js`,
-    [`monaca.upload`]: `node ./scripts/upload.js`,
-    [`monaca.build`]: `node ./scripts/build.js`,
+    'ng.build': `ng build --prod && node ./scripts/replace.index.html.js ${appname}`,
+    login: 'monaca login',
+    upload: 'npm run ng.build && monaca upload',
+    build: 'npm run ng.build && monaca remote build --browser || true',
   },
 
   dependencies: {
@@ -32,7 +32,7 @@ export const updatePakageJson = (originPakageJson: any, appname: string) => ({
   devDependencies: {
     ...originPakageJson.devDependencies,
     monaca: latestVersions.monacaCli,
-    'monaca-lib': latestVersions.monacaLib,
     cheerio: latestVersions.cheerio,
+    puppeteer: latestVersions.puppeteer,
   },
 });

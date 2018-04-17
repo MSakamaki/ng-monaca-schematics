@@ -45,4 +45,14 @@ describe('create Schema Workspace', () => {
     },
     3000000,
   );
+  // it(
+  //   'should e2e',
+  //   () => {
+  //     Init();
+  //     expect(ngTest('--browsers ChromeHeadless')).toContain(
+  //       'Executed 3 of 3 SUCCESS',
+  //     );
+  //   },
+  //   3000000,
+  // );
 });

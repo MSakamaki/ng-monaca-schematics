@@ -40,23 +40,21 @@ ng new <project name> -c @monaca/schematics [--name=<application name>]
    + Insert [Monaca Debugger](https://docs.monaca.io/en/products_guide/debugger/installation/) in mobile development machine
    + connect development machines to the same network
  2. run on a mobile device
-   + run a `npm run build -- --prod` command.
-   + Open `./project/[app name]/www` directory with `Monaca Localkit`
+   + run a `npm run ng.build` command.
+   + Open `./www` directory with `Monaca Localkit`
  3. to preview
 
 #### remote
 
  1. monaca cloud initialized
-   + copy or rename the file from `sample.monaca.config.json` to `monaca.config.json`
-   + Write ID and password to `monaca.config.json`
-   + `npm run monaca.init`
+   + `npm run login`
  2. remote debugging
-   + `npm run monaca.upload`
+   + `npm run upload`
    + open browser [monaca ide page](https://monaca.mobi/en/dashboard)
    + open youre project
    + to preview or run on device
  3. remote build
-   + `npm run monaca.build`
+   + `npm run build`
    + open browser [monaca ide page](https://monaca.mobi/en/dashboard)
    + open youre project
    + open menu [buld] to build history
@@ -68,7 +66,7 @@ ng new <project name> -c @monaca/schematics [--name=<application name>]
  + [x] npm start
  + [x] ng build
  + [x] ng test
- + [ ] ng e2e
+ + [x] ng e2e
  + [ ] update monaca [browserlist](https://github.com/angular/devkit/blob/master/packages/schematics/angular/application/files/root/browserslist)
  + add `ng generate`
    + [ ] component

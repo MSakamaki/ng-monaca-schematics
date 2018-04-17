@@ -14,6 +14,7 @@ export const latestVersions = {
   monacaPluginMonacaCore: '3.2.0',
   onsenui: '~2.9.2',
   ngxOnsenui: '~4.1.0',
+  puppeteer: '1.3.0',
 
   // dev
   monacaCli: '2.6.2',

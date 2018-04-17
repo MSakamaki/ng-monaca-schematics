@@ -12,5 +12,6 @@ export const fileReadSource = (host: Tree, path: string): Buffer => {
   if (source === null) {
     throw new SchematicsException(`File ${path} does not exist.`);
   }
+
   return source;
 };

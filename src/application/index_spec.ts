@@ -20,7 +20,6 @@ const exp = [
   '/src/tslint.json',
   '/.editorconfig',
   '/.gitignore',
-  '/example.monaca.config.json',
   '/src/environments/environment.prod.ts',
   '/src/environments/environment.ts',
   '/src/favicon.ico',
@@ -166,6 +165,6 @@ fdescribe('application', () => {
     expect(json.dependencies['cordova-custom-config']).toBe(
       latestVersions.cordovaCustomConfig,
     );
-    expect(json.devDependencies['monaca-lib']).toBe(latestVersions.monacaLib);
+    expect(json.devDependencies['monaca']).toBe(latestVersions.monacaCli);
   });
 });
