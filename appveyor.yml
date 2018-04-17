@@ -22,7 +22,6 @@ install:
   - npm uninstall -g @angular-devkit/schematics-cli
   - npm install -g @angular/cli@6.0.0-rc.5
   - npm install -g @angular-devkit/schematics-cli@0.5.7
-  - ng --version
 
   # npm install
   - npm install

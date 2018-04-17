@@ -70,8 +70,8 @@ ng new <project name> -c @monaca/schematics [--name=<application name>]
  + [ ] update monaca [browserlist](https://github.com/angular/devkit/blob/master/packages/schematics/angular/application/files/root/browserslist)
  + add `ng generate`
    + [ ] component
- + [ ] monaca upload
- + [ ] monaca cloud buildsing
+ + [x] monaca upload
+ + [x] monaca cloud buildsing
 
 #### workflow and commands
 
@@ -81,10 +81,9 @@ ng new <project name> -c @monaca/schematics [--name=<application name>]
      + [x] useing [monaca-lib template](https://github.com/monaca/monaca-lib/tree/master/src/template)
  + local building
    + [x] server
-   + [ ] genarate [monaca projectid](https://github.com/monaca/monaca-lib/blob/master/src/localkit.js#L229)
  + remote monaca 
-   + [ ] upload monaca cloud
-   + [ ] building monaca cloud
+   + [x] upload monaca cloud
+   + [x] building monaca cloud
 
 ### run testing
 
@@ -92,5 +91,6 @@ ng new <project name> -c @monaca/schematics [--name=<application name>]
 ```sh
 # test
 npm run test
+npm run e2e
 
 ```

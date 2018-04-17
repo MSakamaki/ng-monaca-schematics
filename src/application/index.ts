@@ -29,6 +29,7 @@ import { updateNgJson } from './update.angular.json';
 
 import { MonacaApplicationOptions } from './schema';
 import { updateAppComponentSpecTs } from './update.app.component.spec';
+import { updateE2eProtractorConf } from './update.e2e.protractor.conf';
 
 function overrideWith(
   options: MonacaApplicationOptions,
@@ -69,6 +70,8 @@ function overrideWith(
     updateAppModueTs(host, filePath.ts.mainApp);
 
     updateAppComponentSpecTs(host, filePath.ts.mainAppComponentSpec);
+
+    updateE2eProtractorConf(host);
 
     return host;
   };
