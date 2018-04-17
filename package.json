@@ -8,10 +8,8 @@
     "build": "npm run clean && tsc -p tsconfig.json",
     "w": "tsc -p tsconfig.json -w",
     "test": "npm run build && jasmine src/**/*_spec.js",
-    "checkformat": "prettier src/*/files/**/*.js --list-different",
-    "tscfmt": "prettier src/*/*.ts e2e/**/*.ts --list-different",
-    "format": "prettier src/*/files/**/*.js --write",
-    "tsfmt": "prettier src/*/*.ts e2e/**/*.ts --write",
+    "checkformat": "prettier src/*/files/**/*.js src/*/*.ts e2e/**/*.ts  --list-different",
+    "format": "prettier src/*/files/**/*.js src/*/*.ts e2e/**/*.ts --write",
     "lint.check": "tslint-config-prettier-check ./tslint.json",
     "e2e": "del-cli e2e/_tmp e2e/_build && make-dir e2e/_tmp && tsc -p e2e/tsconfig.json && jest --maxWorkers=1 e2e/_build/test"
   },
@@ -50,10 +48,12 @@
     "typescript": "~2.6.2"
   },
   "devDependencies": {
+    "@types/esprima": "^4.0.1",
     "@types/jest": "^22.2.2",
     "cheerio": "^1.0.0-rc.2",
     "cpx": "^1.5.0",
     "del-cli": "^1.1.0",
+    "esprima": "^4.0.0",
     "jest": "^22.4.3",
     "make-dir-cli": "^1.0.0",
     "prettier": "^1.11.1",

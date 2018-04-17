@@ -17,7 +17,6 @@ notifications:
   slack: gxp:ov6kUHOOChvUDSgHMCLnUiuu
 script:
   - npm run checkformat
-  - npm run tscfmt
   - npm run test
   - npm run e2e
 cache:

@@ -68,7 +68,6 @@ export const ngE2e = (args = '') =>
     .toString()
     .replace(replaceCmdColorExp, '');
 
-
 /** run command line */
 export const projectCli = (command: string) =>
   execSync(command, { cwd: conf.app._ })
