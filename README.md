@@ -1,4 +1,4 @@
-# MONACA + Angular 6+ schematics 
+# MONACA OnsenUI + Angular 6+ schematics 
 
 [![Build Status](https://travis-ci.org/MSakamaki/-monaca-schematics.svg?branch=master)](https://travis-ci.org/MSakamaki/-monaca-schematics)
 [![Build status(win)](https://ci.appveyor.com/api/projects/status/wikogf9fcyox6okh?svg=true)](https://ci.appveyor.com/project/MSakamaki/monaca-schematics)
@@ -26,8 +26,12 @@ npm link <git clone directory>
 ### use
 
 ```sh
-
+# generate project
 ng new <project name> -c @monaca/schematics [--name=<application name>]
+
+# create component
+# aliases ( ng g @monaca/schematics:mc [name] )
+ng generate @monaca/schematics:monaca-component [name]
 
 ```
 
@@ -69,7 +73,9 @@ ng new <project name> -c @monaca/schematics [--name=<application name>]
  + [x] ng e2e
  + [ ] update monaca [browserlist](https://github.com/angular/devkit/blob/master/packages/schematics/angular/application/files/root/browserslist)
  + add `ng generate`
-   + [ ] component
+   + [x] component
+   + [ ] page
+   + [ ] toolbar
  + [x] monaca upload
  + [x] monaca cloud buildsing
 

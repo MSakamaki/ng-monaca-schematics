@@ -15,10 +15,17 @@
       "hidden": true
     },
     "ng-new": {
-      "description": "new workspace",
+      "description": "create new project",
       "factory": "./ng-new",
       "schema": "../node_modules/@schematics/angular/ng-new/schema.json",
       "hidden": true
+    },
+    "monaca-component": {
+      "aliases": [ "mc" ],
+      "description": "Create an Monaca component",
+      "factory": "./monaca-component/index#monacaComponent",
+      "schema": "../node_modules/@schematics/angular/component/schema.json",
+      "hidden": false
     }
   }
 }

@@ -1,4 +1,4 @@
-import { Init, ngBuild, ngLint, ngTest } from '../utils';
+import { Init, ngBuild, ngLint, ngTest, projectCli } from '../utils';
 
 describe('create Schema Workspace', () => {
   it(
@@ -54,4 +54,41 @@ describe('create Schema Workspace', () => {
   //   },
   //   3000000,
   // );
+
+  it(
+    'should generate monaca-component',
+    () => {
+      Init();
+      const log = projectCli(
+        'ng generate @monaca/schematics:monaca-component comp',
+      );
+      expect(log).toContain('CREATE src/app/comp/comp.component.css');
+      expect(log).toContain('CREATE src/app/comp/comp.component.html');
+      expect(log).toContain('CREATE src/app/comp/comp.component.spec.ts');
+      expect(log).toContain('CREATE src/app/comp/comp.component.ts');
+      expect(log).toContain('UPDATE src/app/app.module.ts');
+    },
+    3000000,
+  );
+  it(
+    'should generate monaca-component aliases',
+    () => {
+      Init();
+      const log = projectCli('ng g @monaca/schematics:mc comp-aliases');
+      expect(log).toContain(
+        'CREATE src/app/comp-aliases/comp-aliases.component.css',
+      );
+      expect(log).toContain(
+        'CREATE src/app/comp-aliases/comp-aliases.component.html',
+      );
+      expect(log).toContain(
+        'CREATE src/app/comp-aliases/comp-aliases.component.spec.ts',
+      );
+      expect(log).toContain(
+        'CREATE src/app/comp-aliases/comp-aliases.component.ts',
+      );
+      expect(log).toContain('UPDATE src/app/app.module.ts');
+    },
+    3000000,
+  );
 });

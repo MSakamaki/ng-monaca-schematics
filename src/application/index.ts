@@ -19,16 +19,16 @@ import {
 } from '@schematics/angular/utility/config';
 import { join } from 'path';
 
-import { latestVersions } from '../utility/latest-versions';
 import { updatePakageJson } from './update.pakagejson';
 
+import { latestVersions } from '../utility/latest-versions';
 import { fileReadJsonText } from '../utility/readTree';
-import { updateAppModueTs } from './update.app.module';
+import { updateAppComponentSpecTs } from '../utility/update.app.component.spec';
+import { updateAppModueTs } from '../utility/update.app.module';
 
 import { updateNgJson } from './update.angular.json';
 
 import { MonacaApplicationOptions } from './schema';
-import { updateAppComponentSpecTs } from './update.app.component.spec';
 import { updateE2eProtractorConf } from './update.e2e.protractor.conf';
 
 function overrideWith(
