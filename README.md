@@ -14,11 +14,11 @@ npm install -g @angular/cli@6.0.0-rc.5
 npm install -g @angular-devkit/schematics-cli@0.5.7
 
 # building
-git clone https://github.com/MSakamaki/-monaca-schematics.git
+git clone https://github.com/MSakamaki/ng-monaca-schematics.git
 npm install
 npm run build
 
-# npm install @monaca/schematics
+# npm install ng-monaca-schematics
 npm link <git clone directory>
 
 ```
@@ -27,11 +27,11 @@ npm link <git clone directory>
 
 ```sh
 # generate project
-ng new <project name> -c @monaca/schematics [--name=<application name>]
+ng new <project name> -c ng-monaca-schematics [--name=<application name>]
 
 # create component
-# aliases ( ng g @monaca/schematics:mc [name] )
-ng generate @monaca/schematics:monaca-component [name]
+# aliases ( ng g ng-monaca-schematics:mc [name] )
+ng generate ng-monaca-schematics:monaca-component [name]
 
 ```
 

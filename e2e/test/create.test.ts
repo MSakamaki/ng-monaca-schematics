@@ -60,7 +60,7 @@ describe('create Schema Workspace', () => {
     () => {
       Init();
       const log = projectCli(
-        'ng generate @monaca/schematics:monaca-component comp',
+        'ng generate ng-monaca-schematics:monaca-component comp',
       );
       expect(log).toContain('CREATE src/app/comp/comp.component.css');
       expect(log).toContain('CREATE src/app/comp/comp.component.html');
@@ -74,7 +74,7 @@ describe('create Schema Workspace', () => {
     'should generate monaca-component aliases',
     () => {
       Init();
-      const log = projectCli('ng g @monaca/schematics:mc comp-aliases');
+      const log = projectCli('ng g ng-monaca-schematics:mc comp-aliases');
       expect(log).toContain(
         'CREATE src/app/comp-aliases/comp-aliases.component.css',
       );

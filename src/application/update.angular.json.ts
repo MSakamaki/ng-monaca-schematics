@@ -6,12 +6,12 @@ export const updateNgJson = (
   // see: https://github.com/angular/devkit/issues/249
   // originJson.extends = [
   //   '@schematics/angular',
-  //   '@monaca/schematics'
+  //   'ng-monaca-schematics'
   // ];
 
   originJson.schematics = {
     component: {
-      extends: '@monaca/schematics',
+      extends: 'ng-monaca-schematics',
     },
   };
 

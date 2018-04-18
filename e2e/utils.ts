@@ -32,7 +32,7 @@ export function Init() {
   if (!exists(conf.app._)) {
     postinstall();
 
-    return ngNew(`${projectName} --collection=@monaca/schematics`);
+    return ngNew(`${projectName} --collection=ng-monaca-schematics`);
   } else {
     throw `exests e2e/_tmp${projectName} directory!`;
   }
