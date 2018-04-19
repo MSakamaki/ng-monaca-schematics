@@ -1,6 +1,6 @@
 {
   "name": "ng-monaca-schematics",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Monaca / OnsenUI / Anguler6+ schematics",
   "scripts": {
     "postinstall": "npm install @angular/cli@6.0.0-rc.5 --no-save",

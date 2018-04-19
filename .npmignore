@@ -1,3 +1,16 @@
+# https://docs.npmjs.com/misc/developers#keeping-files-out-of-your-package
+
 # Ignores TypeScript files, but keeps definitions.
 *.ts
 !*.d.ts
+
+#tests
+/e2e/
+
+#build tools
+.travis.yml
+appveyor.yml
+
+# lints
+.prettierrc
+tslint.json
