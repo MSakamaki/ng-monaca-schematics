@@ -1,6 +1,6 @@
 {
   "name": "ng-monaca-schematics",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Monaca / OnsenUI / Anguler6+ schematics",
   "scripts": {
     "release":"npm run build && npm publish",
