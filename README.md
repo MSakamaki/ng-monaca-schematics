@@ -12,14 +12,7 @@
 # npm uninstall -g @angular/cli @angular-devkit/schematics-cli
 npm install -g @angular/cli@6.0.0-rc.5
 npm install -g @angular-devkit/schematics-cli@0.5.7
-
-# building
-git clone https://github.com/MSakamaki/ng-monaca-schematics.git
-npm install
-npm run build
-
-# npm install ng-monaca-schematics
-npm link <git clone directory>
+npm install -g ng-monaca-schematics
 
 ```
 

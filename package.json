@@ -1,8 +1,9 @@
 {
   "name": "ng-monaca-schematics",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Monaca / OnsenUI / Anguler6+ schematics",
   "scripts": {
+    "release":"npm run build && npm publish",
     "postinstall": "npm install @angular/cli@6.0.0-rc.5 --no-save",
     "clean": "del-cli src/**/*.js src/**/*.js.map src/**/*.d.ts !src/*/files/**/*.js",
     "build": "npm run clean && tsc -p tsconfig.json",
