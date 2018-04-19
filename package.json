@@ -26,6 +26,7 @@
     "url": "https://github.com/MSakamaki/ng-monaca-schematics"
   },
   "author": "",
+  "license": "Apache-2.0",
   "licenses": [
     {
       "type": "Apache-2.0",
