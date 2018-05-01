@@ -1,10 +1,10 @@
 # MONACA OnsenUI + Angular 6+ schematics 
 
-[![Build Status](https://travis-ci.org/MSakamaki/-monaca-schematics.svg?branch=master)](https://travis-ci.org/MSakamaki/-monaca-schematics)
+[![Build Status](https://travis-ci.org/MSakamaki/ng-monaca-schematics.svg?branch=master)](https://travis-ci.org/MSakamaki/ng-monaca-schematics)
 [![Build status(win)](https://ci.appveyor.com/api/projects/status/wikogf9fcyox6okh?svg=true)](https://ci.appveyor.com/project/MSakamaki/monaca-schematics)
 
-[![DEPENDENCIES](https://david-dm.org/MSakamaki/-monaca-schematics.svg)](https://david-dm.org/MSakamaki/-monaca-schematics)
-[![DEVDEPENDENCIES](https://david-dm.org/MSakamaki/-monaca-schematics.svg?type=dev)](https://david-dm.org/MSakamaki/-monaca-schematics?type=dev)
+[![DEPENDENCIES](https://david-dm.org/MSakamaki/ng-monaca-schematics.svg)](https://david-dm.org/MSakamaki/ng-monaca-schematics)
+[![DEVDEPENDENCIES](https://david-dm.org/MSakamaki/ng-monaca-schematics.svg?type=dev)](https://david-dm.org/MSakamaki/ng-monaca-schematics?type=dev)
 
 ### install
 

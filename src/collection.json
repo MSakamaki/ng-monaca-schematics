@@ -24,7 +24,7 @@
       "aliases": [ "mc" ],
       "description": "Create an Monaca component",
       "factory": "./monaca-component/index#monacaComponent",
-      "schema": "../node_modules/@schematics/angular/component/schema.json",
+      "schema": "./monaca-component/schema.json",
       "hidden": false
     }
   }
