@@ -10,8 +10,8 @@
 
 ```sh
 # npm uninstall -g @angular/cli @angular-devkit/schematics-cli
-npm install -g @angular/cli@6.0.0-rc.9
-npm install -g @angular-devkit/schematics-cli@0.5.12
+npm install -g @angular/cli@6.0.0
+npm install -g @angular-devkit/schematics-cli@0.6.0
 npm install -g ng-monaca-schematics
 
 ```

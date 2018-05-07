@@ -8,16 +8,12 @@ export const latestVersions = {
   frameworkVersion: '3.5',
   xcodeVersion: '9',
 
-  cordovaCustomConfig: '5.0.2',
-  cordovaPluginSplashscreen: '5.0.1',
-  cordovaPluginWhitelist: '1.3.3',
-  monacaPluginMonacaCore: '3.2.0',
   onsenui: '~2.9.2',
   ngxOnsenui: '~4.1.0',
   puppeteer: '1.3.0',
 
   // dev
-  monacaCli: '2.6.2',
+  monacaCli: '2.7.0',
   monacaLib: packageJSON.dependencies['monaca-lib'],
   cheerio: packageJSON.devDependencies['cheerio'],
 };

@@ -1,6 +1,24 @@
-import { Init, ngBuild, ngLint, ngTest, projectCli } from '../utils';
+import {
+  Init,
+  ngBuild,
+  ngLint,
+  ngTest,
+  npmUpdateG,
+  npmV,
+  projectCli,
+} from '../utils';
 
 describe('create Schema Workspace', () => {
+  beforeEach(() => {
+    npmUpdateG('6.0.0');
+  });
+  it(
+    'npm version',
+    () => {
+      expect(npmV()).toContain('6.0.0');
+    },
+    3000000,
+  );
   it(
     'should build',
     () => {

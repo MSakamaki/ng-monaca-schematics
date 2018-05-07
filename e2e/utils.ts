@@ -32,7 +32,7 @@ export function Init() {
   if (!exists(conf.app._)) {
     postinstall();
 
-    return ngNew(`${projectName} --collection=ng-monaca-schematics`);
+    return ngNew(`${projectName} -c ng-monaca-schematics`);
   } else {
     throw `exests e2e/_tmp${projectName} directory!`;
   }
@@ -75,12 +75,11 @@ export const projectCli = (command: string) =>
     .replace(replaceCmdColorExp, '');
 
 const ngNew = (command: string) =>
-  execSync(
-    `${process.env.APPVEYOR ? conf.global.ng : conf.tmp.ng} new ${command}`,
-    { cwd: conf.tmp._ },
-  ).toString();
+  execSync(`${conf.global.ng} new ${command}`, { cwd: conf.tmp._ }).toString();
 
-const postinstall = () => execSync(`npm run postinstall`, { cwd: conf.root._ });
+const postinstall = () => {
+  // NP
+};
 
 const clean = () =>
   execSync(`${conf.root.del} ${conf.app._}`, { cwd: conf.root._ });
@@ -92,3 +91,8 @@ const exists = (path: string) => {
     return false;
   }
 };
+
+export const npmUpdateG = (version: string) =>
+  execSync(`npm install npm@${version}`, { cwd: conf.tmp._ }).toString();
+export const npmV = () => execSync(`npm -v`, { cwd: conf.tmp._ }).toString();
+export const nodeV = () => execSync(`node -v`, { cwd: conf.tmp._ }).toString();

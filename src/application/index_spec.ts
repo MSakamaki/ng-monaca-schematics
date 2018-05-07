@@ -162,9 +162,7 @@ fdescribe('application', () => {
     const json = JSON.parse(text);
     expect(json.name).toBe('monaca-app');
     expect(json.displayName).toBe('Monaca Template Application');
-    expect(json.dependencies['cordova-custom-config']).toBe(
-      latestVersions.cordovaCustomConfig,
-    );
+    expect(json.dependencies['cordova-custom-config']).toBe('5.0.2');
     expect(json.devDependencies['monaca']).toBe(latestVersions.monacaCli);
   });
 });
