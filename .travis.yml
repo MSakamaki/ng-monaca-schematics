@@ -4,16 +4,18 @@ addons:
   chrome: stable
 node_js:
   - stable
+  - "8"
 branches:
   only: master
+before_install:
+  - npm install -g npm@latest
+  - npm --version
 before_script:
   - npm install -g @angular/cli@6.0.8
   - npm link
 after_failure:
-  - cat /home/travis/build/MSakamaki/-monaca-schematics/npm-debug.log
+  - cat /home/travis/build/MSakamaki/ng-monaca-schematics/npm-debug.log
 notifications:
   slack: gxp:ov6kUHOOChvUDSgHMCLnUiuu
 script:
   - npm run test.all
-cache:
-  directories: node_modules
