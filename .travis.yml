@@ -8,7 +8,8 @@ node_js:
 branches:
   only: master
 before_install:
-  - npm install -g npm@latest
+  - npm install -g npm@6.1.0
+  - npm --version
 before_script:
   - npm install -g @angular/cli@6.0.8
   - npm link
