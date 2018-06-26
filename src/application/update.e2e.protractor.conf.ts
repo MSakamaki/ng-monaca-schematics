@@ -18,6 +18,7 @@ const esprimaOption: ParseOptions = {
 const prettierOption: Options = {
   singleQuote: true,
   trailingComma: 'all',
+  parser: 'typescript',
 };
 const chromeOptions = `,
   chromeOptions: {

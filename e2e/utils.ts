@@ -56,9 +56,9 @@ export const ngLint = (args = '') =>
     .toString()
     .replace(replaceCmdColorExp, '');
 
-/** run unit testing project building */
+/** run unit testing project building (single run) */
 export const ngTest = (args = '') =>
-  execSync(`${conf.app.ng} test ${args}`, { cwd: conf.app._ })
+  execSync(`${conf.app.ng} test --watch=false ${args}`, { cwd: conf.app._ })
     .toString()
     .replace(replaceCmdColorExp, '');
 

@@ -8,8 +8,7 @@ node_js:
 branches:
   only: master
 before_script:
-  - npm install -g @angular/cli@6.0.0
-  - npm install -g @angular-devkit/schematics-cli@0.6.0
+  - npm install -g @angular/cli@6.0.8
   - npm link
 after_failure:
   - cat /home/travis/build/MSakamaki/-monaca-schematics/npm-debug.log

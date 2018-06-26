@@ -1,6 +1,6 @@
-import * as ts from 'typescript';
 import { findNodes } from '@schematics/angular/utility/ast-utils';
-import { InsertChange, Change } from '@schematics/angular/utility/change';
+import { Change, InsertChange } from '@schematics/angular/utility/change';
+import * as ts from 'typescript';
 
 export function addImportToTestBed(
   source: ts.SourceFile,
@@ -24,10 +24,10 @@ function _appendToTestBed(
   symbolName: string,
   metadataField: string,
 ): Change[] {
-  const allCalls: ts.CallExpression[] = <any>findNodes(
+  const allCalls: ts.CallExpression[] = findNodes(
     source,
     ts.SyntaxKind.CallExpression,
-  );
+  ) as ts.CallExpression[];
 
   const configureTestingModuleObjectLiterals = allCalls
     .filter(c => c.expression.kind === ts.SyntaxKind.PropertyAccessExpression)
@@ -46,6 +46,7 @@ function _appendToTestBed(
     const startPosition = configureTestingModuleObjectLiterals[0]
       .getFirstToken(source)
       .getEnd();
+
     return [
       new InsertChange(
         specPath,

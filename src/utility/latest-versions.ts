@@ -8,12 +8,12 @@ export const latestVersions = {
   frameworkVersion: '3.5',
   xcodeVersion: '9',
 
-  onsenui: '~2.9.2',
-  ngxOnsenui: '~4.1.0',
-  puppeteer: '1.3.0',
+  onsenui: '~2.10.1',
+  ngxOnsenui: '~4.2.2',
+  puppeteer: '^1.5.0',
 
   // dev
-  monacaCli: '2.7.0',
+  monacaCli: packageJSON.dependencies['monaca'],
   monacaLib: packageJSON.dependencies['monaca-lib'],
   cheerio: packageJSON.devDependencies['cheerio'],
 };

@@ -10,14 +10,14 @@ import {
 
 describe('create Schema Workspace', () => {
   beforeEach(() => {
-    npmUpdateG('6.0.0');
+    npmUpdateG('6.1.0');
   });
   it(
     'npm version',
     () => {
-      expect(npmV()).toContain('6.0.0');
+      expect(npmV()).toContain('6.1.0');
     },
-    3000000,
+    300000,
   );
   it(
     'should build',
@@ -43,7 +43,7 @@ describe('create Schema Workspace', () => {
         'chunk {vendor} vendor.js, vendor.js.map (vendor)',
       );
     },
-    3000000,
+    300000,
   );
   it(
     'should lint',
@@ -51,7 +51,7 @@ describe('create Schema Workspace', () => {
       Init();
       expect(ngLint()).toContain('All files pass linting.');
     },
-    3000000,
+    300000,
   );
   it(
     'should test',
@@ -61,7 +61,7 @@ describe('create Schema Workspace', () => {
         'Executed 3 of 3 SUCCESS',
       );
     },
-    3000000,
+    300000,
   );
   // TODO: https://github.com/angular/protractor/issues/4657
   // it(
@@ -70,7 +70,7 @@ describe('create Schema Workspace', () => {
   //     Init();
   //     expect(ngE2e()).toContain('should display welcome message');
   //   },
-  //   3000000,
+  //   300000,
   // );
 
   it(
@@ -86,7 +86,7 @@ describe('create Schema Workspace', () => {
       expect(log).toContain('CREATE src/app/comp/comp.component.ts');
       expect(log).toContain('UPDATE src/app/app.module.ts');
     },
-    3000000,
+    300000,
   );
   it(
     'should generate monaca-component aliases',
@@ -107,6 +107,6 @@ describe('create Schema Workspace', () => {
       );
       expect(log).toContain('UPDATE src/app/app.module.ts');
     },
-    3000000,
+    300000,
   );
 });
