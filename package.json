@@ -35,7 +35,7 @@
   ],
   "engines": {
     "node": ">=8.9",
-    "npm": ">=5.6.0"
+    "npm": ">=6.1.0"
   },
   "bugs": {
     "url": "https://github.com/MSakamaki/ng-monaca-schematics/issues"
