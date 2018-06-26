@@ -1,5 +1,7 @@
 # MONACA OnsenUI + Angular 6+ schematics 
 
+[![npm version](https://badge.fury.io/js/ng-monaca-schematics.svg)](https://badge.fury.io/js/ng-monaca-schematics)
+
 [![Build Status](https://travis-ci.org/MSakamaki/ng-monaca-schematics.svg?branch=master)](https://travis-ci.org/MSakamaki/ng-monaca-schematics)
 [![Build status(win)](https://ci.appveyor.com/api/projects/status/wikogf9fcyox6okh?svg=true)](https://ci.appveyor.com/project/MSakamaki/monaca-schematics)
 
