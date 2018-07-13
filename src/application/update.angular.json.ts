@@ -30,10 +30,10 @@ export const updateNgJson = (
     styles: originJson.projects[_appName].architect.build.options.styles.concat(
       [
         {
-          input: 'node_modules/onsenui/css/onsen-css-components.css',
+          input: 'node_modules/onsenui/css/onsen-css-components.min.css',
         },
         {
-          input: 'node_modules/onsenui/css/onsenui.css',
+          input: 'node_modules/onsenui/css/onsenui.min.css',
         },
         {
           input: `src/components/loader.css`,

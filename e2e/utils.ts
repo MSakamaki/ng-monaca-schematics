@@ -95,4 +95,5 @@ const exists = (path: string) => {
 export const npmUpdateG = (version: string) =>
   execSync(`npm install npm@${version}`, { cwd: conf.tmp._ }).toString();
 export const npmV = () => execSync(`npm -v`, { cwd: conf.tmp._ }).toString();
+export const ngV = () => execSync(`ng -v`, { cwd: conf.tmp._ }).toString();
 export const nodeV = () => execSync(`node -v`, { cwd: conf.tmp._ }).toString();

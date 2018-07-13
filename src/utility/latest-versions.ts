@@ -8,7 +8,7 @@ export const latestVersions = {
   frameworkVersion: '3.5',
   xcodeVersion: '9',
 
-  onsenui: '~2.10.1',
+  onsenui: '~2.10.3',
   ngxOnsenui: '~4.2.2',
   puppeteer: '^1.5.0',
 

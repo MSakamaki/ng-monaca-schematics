@@ -12,6 +12,7 @@ import { MonacaWorkspaceOptions } from '../workspace/schema';
 const collectionPath = path.join(__dirname, '../collection.json');
 
 const exp = [
+  '/www/.gitkeep',
   '/README.md',
   '/angular.json',
   '/package.json',
@@ -162,7 +163,7 @@ fdescribe('application', () => {
     const json = JSON.parse(text);
     expect(json.name).toBe('monaca-app');
     expect(json.displayName).toBe('Monaca Template Application');
-    expect(json.dependencies['cordova-custom-config']).toBe('5.0.2');
+    expect(json.dependencies['monaca-plugin-monaca-core']).toBe('3.2.0');
     expect(json.devDependencies['monaca']).toBe(latestVersions.monacaCli);
   });
 });
